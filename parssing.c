@@ -6,22 +6,57 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/06 15:47:05 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/06 17:50:58 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	parssing(t_map *map, t_list *points, int argc, char *argv)
+int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
+{
+	int		i;
+	int		j;
+	t_liste	p;
+
+	i = 0;
+	j = map->total_y;
+	while(ligne[i])
+	{
+		p.x = i;
+		p.y = j;
+		p.z = ft_atoi(ligne[i]);
+		printf("point: %d - %d - %d\n", p.x, p.y, p.z);
+		ft_lstaddend(&points, &p);
+	}
+	map->total_y = j + 1;
+	//ft_freetabtab(ligne);
+	if (map->total_x == i || map->total_x == 0)
+		map->total_x = i;
+	else
+		return (0);
+	return (1);
+}
+
+int		parssing(t_map *map, t_liste *points, int argc, char **argv)
 {
 	char	**tmp;
-	int		fd;
+	char	**tmp2;
+	FILE	*fd;
 
+	argc++;
+	tmp = NULL;
+	printf("ARGV %s\n", argv[1]);
 	if ((fd = fopen(argv[1], "r")) != NULL)
 	{
-		while (getnextline(fd, tmp) == 1)
+		printf("IN\n");
+		while (get_next_line((int)fd, tmp))
 		{
-			
+			printf("IN2\n");
+			tmp2 = ft_strsplit(tmp[0], ' ');
+			if (ft_set_valeur(tmp2, map, points) == 0)
+				return (0);
 		}
 	}
+	printf("BLOP\n");
+	return (1);
 }

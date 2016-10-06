@@ -6,22 +6,33 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/06 15:47:07 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/06 17:46:22 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "fdf.h"
 
-int		main(int argc, char *argv)
+int		main(int argc, char **argv)
 {
-	tmap	*map;
-	t_list	*points
+	t_map	*map;
+	t_liste	*points;
 	void	*mlx;
 	void	*win;
 	int		x;
 	int 	y;
 
-	parssing(map, points, argc, argv);
+	points = NULL;
+	map = NULL;
+	if (parssing(map, points, argc, argv) == 0)
+	{
+		printf("ERREUR\n");
+		return (0);
+	}
+	while (points)
+	{
+		printf("point: %d - %d - %d\n", points->x, points->y, points->z);
+		points = points->next;
+	}
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 400, 400, "mlx 42 blop");
 	y = 50;
