@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/07 15:48:18 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/07 16:54:34 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,32 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 {
 	int		i;
 	int		j;
-	t_liste	p;
+	t_liste	*p;
 
 	i = 0;
 	j = map->total_y;
 	printf("avant while, valeur de j %d\n", j);
 	while(ligne[i])
 	{
-		p.x = i;
-		p.y = j;
-		p.z = ft_atoi(ligne[i]);
-		printf("point: %d - %d - %d\n", p.x, p.y, p.z);
-		ft_lstaddend(&points, &p);
+		p = (t_liste*)malloc(sizeof(t_liste));
+		p->x = i;
+		p->y = j;
+		p->z = ft_atoi(ligne[i]);
+		p->next = NULL;
+		//printf("point: %d - %d - %d\n", p->x, p->y, p->z);
+		ft_lstaddend(&points, p);
+		//printf("un trour\n");
+		i++;
 	}
 	map->total_y = j + 1;
 	//ft_freetabtab(ligne);
 	if (map->total_x == i || map->total_x == 0)
 		map->total_x = i;
 	else
+	{
+		printf("%d - %d\n", map->total_x, i);
 		return (0);
+	}
 	return (1);
 }
 
@@ -61,10 +68,17 @@ int		parssing(t_map *map, t_liste *points, int argc, char **argv)
 					exit (-1);
 				}
 			printf("retour gnl : %d\n", i);
+			if (i == 0)
+				return (1);
 			tmp2 = ft_strsplit(tmp, ' ');
 			if (ft_set_valeur(tmp2, map, points) == 0)
-				return (0);
+				return (-1);
 		}
+	}
+	if (fd == -1)
+	{
+		printf("Errreur map - printf\n");
+		exit (1);
 	}
 	printf("BLOP\n");
 	return (1);
