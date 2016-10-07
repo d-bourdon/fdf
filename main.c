@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/06 17:46:22 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/07 15:46:53 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		main(int argc, char **argv)
 	int		x;
 	int 	y;
 
-	points = NULL;
-	map = NULL;
+	map = (t_map*)malloc(sizeof(t_map));
+	points = (t_liste*)malloc(sizeof(t_liste));
 	if (parssing(map, points, argc, argv) == 0)
 	{
 		printf("ERREUR\n");

@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/06 17:41:18 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/07 15:20:21 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 # include "libft/libft.h"
 # include "mlx/mlx.h"
-//# include "mlx/mlx_int.h"
-//# include "mlx_new_windows.h"
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 typedef struct		s_liste
 {

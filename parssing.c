@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/06 17:50:58 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/07 15:48:18 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 
 	i = 0;
 	j = map->total_y;
+	printf("avant while, valeur de j %d\n", j);
 	while(ligne[i])
 	{
 		p.x = i;
@@ -39,20 +40,28 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 
 int		parssing(t_map *map, t_liste *points, int argc, char **argv)
 {
-	char	**tmp;
+	char	*tmp;
 	char	**tmp2;
-	FILE	*fd;
+	int		fd;
+	int		i;
 
+	i = 1;
 	argc++;
 	tmp = NULL;
 	printf("ARGV %s\n", argv[1]);
-	if ((fd = fopen(argv[1], "r")) != NULL)
+	if ((fd = open(argv[1], O_RDONLY)) != -1)
 	{
-		printf("IN\n");
-		while (get_next_line((int)fd, tmp))
+		printf("IN fd = %d\n", fd);
+		while (i != 0 && i != -1)
 		{
-			printf("IN2\n");
-			tmp2 = ft_strsplit(tmp[0], ' ');
+			i = get_next_line(fd, &tmp);
+				if (i == -1)
+				{
+					printf("Erreur de lecture - exit\n");
+					exit (-1);
+				}
+			printf("retour gnl : %d\n", i);
+			tmp2 = ft_strsplit(tmp, ' ');
 			if (ft_set_valeur(tmp2, map, points) == 0)
 				return (0);
 		}
