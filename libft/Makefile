@@ -6,13 +6,14 @@
 #    By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 15:51:25 by paim              #+#    #+#              #
-#*   Updated: 2016/10/06 14:14:01 by dbourdon         ###   ########.fr       *#
+#    Updated: 2016/10/09 14:22:19 by dbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = ft_memset.c\
+SRC = ft_isnbr.c\
+	  ft_memset.c\
 	  ft_bzero.c\
 	  ft_memcpy.c\
 	  ft_memmove.c\

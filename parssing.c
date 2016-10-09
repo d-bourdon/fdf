@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/07 16:54:34 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/09 14:26:02 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 		p = (t_liste*)malloc(sizeof(t_liste));
 		p->x = i;
 		p->y = j;
+		if (!ft_isnbr(ligne[i]))
+			return (0);
 		p->z = ft_atoi(ligne[i]);
 		p->next = NULL;
 		//printf("point: %d - %d - %d\n", p->x, p->y, p->z);

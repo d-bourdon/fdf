@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 15:55:47 by paim              #+#    #+#             */
-/*   Updated: 2016/08/18 12:44:11 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/09 14:23:27 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_isspace(const char c);
+int					ft_isnbr(char *str);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				ft_putchar(char c);
