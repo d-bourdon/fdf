@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/07 17:13:41 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/12 17:29:00 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ int		main(int argc, char **argv)
 	t_liste	*points;
 	void	*mlx;
 	void	*win;
+	int		y;
+	int		x;
 
+	y = 0;
+	x = 0;
 	map = (t_map*)malloc(sizeof(t_map));
 	map->total_y = 0;
 	map->total_x = 0;
@@ -28,19 +32,32 @@ int		main(int argc, char **argv)
 	points->z = 0;
 	points->next = NULL;
 	if (parssing(map, points, argc, argv) == -1)
-	{
-		printf("ERREUR map ecriture - printf\n");
-		return (0);
-	}
+		ft_erreur("Map invalide", 1);
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 400, 400, "mlx 42 blop");
-	while (points)
+	win = mlx_new_window(mlx, 450, 450, "mlx 42 blop");
+	while (y <= 400)
 	{
-		if (points->z > 0)
+		while (x <= 400)
 		{
-			mlx_pixel_put(mlx, win, points->x + 150, points->y + 150, 0x00FFFFFF);
+			if (points && (x % 20 == 0 || y % 20 == 0))
+			{
+				mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF - (points->z * 50));
+			}
+			if (points && (y == points->y * 20))
+			{
+				mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF - (points->z * 50));
+			}
+			if (points && (x % 20 == 0 && y % 20 == 0 && points->y * 20 == y))
+			{
+				printf("On change - Valeur : %d - %d - %d - %d\n", points->x, points->y, x, y);
+				points = points->next;
+				//if (points && points->y != y)
+				//	x = 400;
+			}
+			x++;
 		}
-		points = points->next;
+		x = 0;
+		y++;
 	}
 	mlx_loop(mlx);
 	return (1);
