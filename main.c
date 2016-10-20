@@ -30,18 +30,20 @@ int		main(int argc, char **argv)
 	points->x = 0;
 	points->y = 0;
 	points->z = 0;
+	points->c = 0;
 	points->next = NULL;
 	if (parssing(map, points, argc, argv) == -1)
 		ft_erreur("Map invalide", 1);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 450, 450, "mlx 42 blop");
-	while (y <= 400)
+	while (y <= map->total_y * 20)
 	{
-		while (x <= 400)
+		while (x <= map->total_x * 20)
 		{
-			if (points && (x % 20 == 0 || y % 20 == 0))
+			if (x % 20 == 0 || y % 20 == 0)
 			{
-				mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF - (points->z * 50));
+				mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF);
+				printf("put pixel %d - %d\n", x, y);
 			}
 			if (points && (y == points->y * 20))
 			{

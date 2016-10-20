@@ -18,11 +18,11 @@ OBJ = $(SRC:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
-.PHONY: clean fclean re libft norme
+.PHONY: clean fclean re libft norme mlx
 
 all: $(NAME)
 
-$(NAME) : libft $(OBG)
+$(NAME) : libft mlx $(OBG)
 	@clang $(FLAGS) $(SRC) -g -o $(NAME) -L./libft/ -lft -L./mlx/ -lmlx -framework OpenGL -framework AppKit
 	@echo "Compilation"
 
@@ -44,3 +44,6 @@ re: fclean all
 
 norme:
 	@norminette *.[ch] ./libft/*.[ch]
+
+mlx:
+	@make -C mlx/

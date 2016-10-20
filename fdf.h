@@ -26,6 +26,7 @@ typedef struct		s_liste
 	int				x;
 	int				y;
 	int				z;
+	int				c;
 	struct s_liste	*next;
 }					t_liste;
 
