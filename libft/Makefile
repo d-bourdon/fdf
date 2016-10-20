@@ -6,7 +6,7 @@
 #    By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 15:51:25 by paim              #+#    #+#              #
-#    Updated: 2016/10/09 14:22:19 by dbourdon         ###   ########.fr        #
+#    Updated: 2016/10/20 17:23:27 by dbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,9 @@ SRC = ft_isnbr.c\
 	  ft_strsubfree.c\
 	  ft_strsplitw.c\
 	  ft_isspace.c\
-	  ft_strdupfree.c
+	  ft_strdupfree.c\
+	  ft_pow.c\
+	  ft_revers.c\
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 #*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/06/15 14:15:13 by dbourdon          #+#    #+#             *#
-#*   Updated: 2016/10/06 14:13:15 by dbourdon         ###   ########.fr       *#
+#*   Updated: 2016/10/20 15:49:34 by dbourdon         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -23,27 +23,27 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME) : libft mlx $(OBG)
-	@clang $(FLAGS) $(SRC) -g -o $(NAME) -L./libft/ -lft -L./mlx/ -lmlx -framework OpenGL -framework AppKit
+	-@clang $(FLAGS) $(SRC) -g -o $(NAME) -L./libft/ -lft -L./mlx/ -lmlx -framework OpenGL -framework AppKit
 	@echo "Compilation"
 
 libft:
-	@make -C libft/
+	-@make -C libft/
 
 clean: 
-	@make -C libft/ clean
-	@rm -f $(OBJ) *.gch
+	-@make -C libft/ clean
+	-@rm -f $(OBJ) *.gch
 	@echo "Supression"
 
 fclean: clean
-	@rm -f $(NAME)
-	@make -C libft/ fclean
+	-@rm -f $(NAME)
+	-@make -C libft/ fclean
 	@echo "totale..."
 
 re: fclean all
-	@make re -C libft/
+	-@make re -C libft/
 
 norme:
 	@norminette *.[ch] ./libft/*.[ch]
 
 mlx:
-	@make -C mlx/
+	-@make -C mlx/

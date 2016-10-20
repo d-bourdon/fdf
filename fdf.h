@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/12 11:32:33 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/20 17:20:13 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ typedef struct		s_map
 	int				total_y;
 }					t_map;
 
-
+// parssing.c
 int		ft_set_valeur(char **ligne, t_map *map, t_liste *points);
 int		parssing(t_map *map, t_liste *points, int argc, char **argv);
-
+// ft_lstaddend.c
 void	ft_lstaddend(t_liste **liste, t_liste *ajout);
-
+// ft_erreur.c
 void	ft_erreur(char *s, int mode);
-
+// color.c
+int		ft_ishexa(int c);
+int		ft_hexctoi(char	*hex);
 #endif

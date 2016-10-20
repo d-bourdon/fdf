@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/12 17:29:00 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/20 18:06:32 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int		main(int argc, char **argv)
 		{
 			if (x % 20 == 0 || y % 20 == 0)
 			{
-				mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF);
+				mlx_pixel_put(mlx, win, x, y, 0x00FF0000);
 				printf("put pixel %d - %d\n", x, y);
 			}
 			if (points && (y == points->y * 20))
 			{
-				mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF - (points->z * 50));
+				mlx_pixel_put(mlx, win, x, y, 16777215 - (points->z * 500));
 			}
 			if (points && (x % 20 == 0 && y % 20 == 0 && points->y * 20 == y))
 			{

@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 15:55:47 by paim              #+#    #+#             */
-/*   Updated: 2016/10/09 14:23:27 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/20 17:08:53 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,8 @@ int					get_next_line(const int fd, char **line);
 char				*ft_strjoinfree(char *s1, char *s2, int	mode);
 char				*ft_strcatchar(char *dst, const char src);
 char				**ft_strsplitw(char const *s);
+char				*ft_reversfree(char *in);
+char				*ft_revers(char *in);
+int					ft_pow(int nb, int pow);
 
 #endif
