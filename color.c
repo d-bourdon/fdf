@@ -46,4 +46,15 @@ int		ft_hexctoi(char *hex)
 	return (out);
 }
 
-// int		ft_detect_coul(int *coul)
+int		ft_detect_coul(char *lect)
+{
+	char	**tab;
+
+	tab = ft_strstr(lect, ',');
+
+	set hauteur atoi tab0
+	if tab1
+		set couleur hexctoi tab1
+	return 1
+
+}
