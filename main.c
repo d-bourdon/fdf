@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/25 17:39:20 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/25 19:27:40 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		main(int argc, char **argv)
 {
+	// stucture info a cree comportant les info de la fenettre, image, etc.. de mlx
 	t_map	*map;
 	t_liste	*points;
 	void	*mlx;
@@ -57,6 +58,11 @@ int		main(int argc, char **argv)
 	// 	x = 0;
 	// 	y++;
 	// }
+
+	/////////////////////////////////////////////////////////////
+	//    DEMO
+	/////////////////////////////////////////////////////////////
+
 	int xi,yi,xf,yf;
 	xi = 15;
 	yi = 2;
