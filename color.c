@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/20 18:06:25 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/25 19:21:21 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,23 @@ int		ft_hexctoi(char *hex)
 	return (out);
 }
 
-int		ft_detect_coul(char *lect)
+
+int		ft_col(int couleur)
 {
-	char	**tab;
-
-	tab = ft_strstr(lect, ',');
-
-	set hauteur atoi tab0
-	if tab1
-		set couleur hexctoi tab1
-	return 1
-
+	if (couleur  == 0)
+		return (16777215);
+	else
+		return (couleur);
 }
+// int		ft_detect_coul(char *lect)
+// {
+// 	char	**tab;
+
+// 	tab = ft_strstr(lect, ',');
+
+// 	set hauteur atoi tab0
+// 	if tab1
+// 		set couleur hexctoi tab1
+// 	return 1
+
+// }
