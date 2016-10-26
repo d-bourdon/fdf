@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/20 17:20:13 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/26 15:39:42 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ typedef struct		s_map
 	int				total_y;
 }					t_map;
 
+typedef struct		s_info
+{
+	void			*mlx;
+	void			*win;
+}					t_info;
+
+
 // parssing.c
 int		ft_set_valeur(char **ligne, t_map *map, t_liste *points);
 int		parssing(t_map *map, t_liste *points, int argc, char **argv);
@@ -46,4 +53,9 @@ void	ft_erreur(char *s, int mode);
 // color.c
 int		ft_ishexa(int c);
 int		ft_hexctoi(char	*hex);
+int		ft_col(int couleur);
+// ligne.c
+void	trace_ligneg(int *dir, int *p, int *d, t_info info);
+void	trace_ligned(int *dir, int *p, int *d, t_info info);
+void	ft_ligne(int *pos1, int *pos2, t_info info);
 #endif

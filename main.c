@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/25 19:27:40 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/26 17:07:53 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int		main(int argc, char **argv)
 	// stucture info a cree comportant les info de la fenettre, image, etc.. de mlx
 	t_map	*map;
 	t_liste	*points;
-	void	*mlx;
-	void	*win;
+	t_info	info;
+	int		vision;
 
+	vision = 30;
 	map = (t_map*)malloc(sizeof(t_map));
 	map->total_y = 0;
 	map->total_x = 0;
@@ -31,8 +32,18 @@ int		main(int argc, char **argv)
 	points->next = NULL;
 	if (parssing(map, points, argc, argv) == -1)
 		ft_erreur("Map invalide", 1);
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 450, 450, "mlx 42 blop");
+	info.mlx = mlx_init();
+	info.win = mlx_new_window(info.mlx, 450, 450, "mlx 42 blop");
+	ft_matrice(points, vision);
+	int pos1[3], pos2[3];
+	pos1[0] = 50;
+	pos1[1] = 50;
+	pos1[2] = 0;
+	pos2[0] = 120;
+	pos2[1] = 200;
+	pos2[2] = 0;
+	ft_ligne(pos1, pos2, info);
+
 	// while (y <= map->total_y * 20)
 	// {
 	// 	while (x <= map->total_x * 20)
@@ -63,39 +74,41 @@ int		main(int argc, char **argv)
 	//    DEMO
 	/////////////////////////////////////////////////////////////
 
-	int xi,yi,xf,yf;
-	xi = 15;
-	yi = 2;
-	xf = 25;
-	yf = 30;
-  int dx,dy,i,xinc,yinc,cumul,x,y ;
-  x = xi ;
-  y = yi ;
-  dx = xf - xi ;
-  dy = yf - yi ;
-  xinc = ( dx > 0 ) ? 1 : -1 ;
-  yinc = ( dy > 0 ) ? 1 : -1 ;
-  dx = abs(dx) ;
-  dy = abs(dy) ;
-  mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF) ;
-  if ( dx > dy ) {
-    cumul = dx / 2 ;
-    for ( i = 1 ; i <= dx ; i++ ) {
-      x += xinc ;
-      cumul += dy ;
-      if ( cumul >= dx ) {
-        cumul -= dx ;
-        y += yinc ; }
-      mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF) ; } }
-    else {
-    cumul = dy / 2 ;
-    for ( i = 1 ; i <= dy ; i++ ) {
-      y += yinc ;
-      cumul += dx ;
-      if ( cumul >= dy ) {
-        cumul -= dy ;
-        x += xinc ; }
-      mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF) ; } }
-	mlx_loop(mlx);
+	// int xi,yi,xf,yf;
+	// xi = 15;
+	// yi = 2;
+	// xf = 25;
+	// yf = 30;
+ //  int dx,dy,i,xinc,yinc,cumul,x,y ;
+ //  x = xi ;
+ //  y = yi ;
+ //  dx = xf - xi ;
+ //  dy = yf - yi ;
+ //  xinc = ( dx > 0 ) ? 1 : -1 ;
+ //  yinc = ( dy > 0 ) ? 1 : -1 ;
+ //  dx = abs(dx) ;
+ //  dy = abs(dy) ;
+ //  mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF) ;
+ //    if ( dx > dy ) {
+ //      cumul = dx / 2 ;
+ //      for ( i = 1 ; i <= dx ; i++ ) {
+ //      	x += xinc ;
+ //      	cumul += dy ;
+ //      	if ( cumul >= dx ) {
+ //        		cumul -= dx ;
+ //        		y += yinc ; }
+ //      mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF) ;
+ //		 }
+ //	   }
+ //    else {
+ //    cumul = dy / 2 ;
+ //    for ( i = 1 ; i <= dy ; i++ ) {
+ //      y += yinc ;
+ //      cumul += dx ;
+ //      if ( cumul >= dy ) {
+ //        cumul -= dy ;
+ //        x += xinc ; }
+ //      mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF) ; } }
+	mlx_loop(info.mlx);
 	return (1);
 }
