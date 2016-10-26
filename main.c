@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/26 17:07:53 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/26 17:47:36 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int		main(int argc, char **argv)
 		ft_erreur("Map invalide", 1);
 	info.mlx = mlx_init();
 	info.win = mlx_new_window(info.mlx, 450, 450, "mlx 42 blop");
-	ft_matrice(points, vision);
+//	ft_matrice(points, vision);
+	printf("BLOP : %f\n", ((points->x * cos(vision + points->z)) - (points->y * sin(vision + points->z))));
 	int pos1[3], pos2[3];
 	pos1[0] = 50;
 	pos1[1] = 50;
