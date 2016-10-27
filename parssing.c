@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/27 17:25:54 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/27 19:28:35 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 	int		i;
 	int		j;
 	t_liste	*p;
+	char	**tab;
 
 	i = 0;
 	j = map->total_y;
@@ -27,12 +28,19 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 		p->ox = i;
 		p->y = j;
 		p->oy = j;
-		if (!ft_isnbr(ligne[i]))
+		tab = ft_strsplit(ligne[i], ',');
+		if (!ft_isnbr(tab[0]))
+		{
 			return (0);
-		p->z = ft_atoi(ligne[i]);
+		}
+		p->z = ft_atoi(tab[0]);
+		if (tab[1])
+			p->c = ft_hexctoi(tab[1]);
+					//printf("NOP = %s - %d\n", tab[1], p->c);
 		p->next = NULL;
 		ft_lstaddend(&points, p);
 		i++;
+		tab[1] = NULL;
 	}
 	map->total_y = j + 1;
 	if (map->total_x == i || map->total_x == 0)
