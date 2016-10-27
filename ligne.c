@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/27 17:53:50 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/27 18:28:34 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,14 +116,14 @@ void	ft_boucle_draw(t_liste *p, t_map *m, t_info info)
 			ft_dessine(p1, p1->next, info);
 		while (p2 && p2->next && i < m->total_x)
 		{
-			printf("            On Boucle poy : %d - %d\n", p2->oy, m->total_x);
+			//printf("            On Boucle poy : %d - %d\n", p2->oy, m->total_x);
 			p2 = p2->next;
 			i++;
 		}
 		i = 0;
 		if (p2 && p2->oy > p1->oy)
 		{
-			printf("            On draw !!!");
+			//printf("            On draw !!!");
 			ft_dessine(p1, p2, info);
 		}
 		p1 = p1->next;
