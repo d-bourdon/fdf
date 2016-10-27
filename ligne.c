@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/26 16:33:02 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/27 17:53:50 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 			cumul -= d[0];
 			p[1] += dir[1];
 		}
-		mlx_pixel_put(info.mlx, info.win, p[0], p[1], ft_col(p[2]));
+		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_col(p[2]));
 		i++;
 	}
 }
@@ -49,7 +49,7 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 			cumul -= d[1];
 			p[0] += dir[0];
 		}
-		mlx_pixel_put(info.mlx, info.win, p[0], p[1], ft_col(p[2]));
+		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_col(p[2]));
 		i++;
 	}
 }
@@ -76,9 +76,70 @@ void	ft_ligne(int *pos1, int *pos2, t_info info)
 		dir[1] = 1;
 	d[0] = abs(d[0]);
 	d[1] = abs(d[1]);
-	mlx_pixel_put(info.mlx, info.win, pos1[0], pos1[1], ft_col(point[2]));
+	mlx_pixel_put(info.mlx, info.win, pos1[0] + 100, pos1[1] + 500, ft_col(point[2]));
 	if (d[0] > d[1])
 		trace_ligned(dir, point, d, info);
 	else
 		trace_ligneg(dir, point, d, info);
 }
+
+void	ft_dessine(t_liste *p1, t_liste *p2, t_info info)
+{
+	int		pos1[3];
+	int		pos2[3];
+	pos1[0] = p1->x;
+	pos1[1] = p1->y;
+	pos1[2] = 0;
+	if (p1->c != 0)
+		pos1[2] = p1->c;
+	pos2[0] = p2->x;
+	pos2[1] = p2->y;
+	pos2[2] = 0;
+	if (p2->c != 0)
+		pos2[2] = p2->c;
+	ft_ligne(pos1, pos2, info);
+}
+
+
+void	ft_boucle_draw(t_liste *p, t_map *m, t_info info)
+{
+	t_liste *p1;
+	t_liste *p2;
+	int		i;
+
+	p1 = p;
+	i = 0;
+	while (p1)
+	{
+		p2 = p1;
+		if (p1 && p1->next && p1->next->oy == p1->oy)
+			ft_dessine(p1, p1->next, info);
+		while (p2 && p2->next && i < m->total_x)
+		{
+			printf("            On Boucle poy : %d - %d\n", p2->oy, m->total_x);
+			p2 = p2->next;
+			i++;
+		}
+		i = 0;
+		if (p2 && p2->oy > p1->oy)
+		{
+			printf("            On draw !!!");
+			ft_dessine(p1, p2, info);
+		}
+		p1 = p1->next;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

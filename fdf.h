@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/26 15:39:42 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/27 17:40:37 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct		s_liste
 	int				y;
 	int				z;
 	int				c;
+	int				ox;
+	int				oy;
 	struct s_liste	*next;
 }					t_liste;
 
@@ -42,20 +44,36 @@ typedef struct		s_info
 	void			*win;
 }					t_info;
 
-
-// parssing.c
-int		ft_set_valeur(char **ligne, t_map *map, t_liste *points);
-int		parssing(t_map *map, t_liste *points, int argc, char **argv);
-// ft_lstaddend.c
-void	ft_lstaddend(t_liste **liste, t_liste *ajout);
-// ft_erreur.c
-void	ft_erreur(char *s, int mode);
-// color.c
-int		ft_ishexa(int c);
-int		ft_hexctoi(char	*hex);
-int		ft_col(int couleur);
-// ligne.c
-void	trace_ligneg(int *dir, int *p, int *d, t_info info);
-void	trace_ligned(int *dir, int *p, int *d, t_info info);
-void	ft_ligne(int *pos1, int *pos2, t_info info);
+/*
+** parssing.c
+*/
+int					ft_set_valeur(char **ligne, t_map *map, t_liste *points);
+int					parssing(t_map *map, t_liste *points, int argc,
+						char **argv);
+/*
+** ft_lstaddend.c
+*/
+void				ft_lstaddend(t_liste **liste, t_liste *ajout);
+/*
+** ft_erreur.c
+*/
+void				ft_erreur(char *s, int mode);
+/*
+** color.c
+*/
+int					ft_ishexa(int c);
+int					ft_hexctoi(char	*hex);
+int					ft_col(int couleur);
+/*
+** ligne.c
+*/
+void				trace_ligneg(int *dir, int *p, int *d, t_info info);
+void				trace_ligned(int *dir, int *p, int *d, t_info info);
+void				ft_ligne(int *pos1, int *pos2, t_info info);
+void				ft_dessine(t_liste *p1, t_liste *p2, t_info info);
+void				ft_boucle_draw(t_liste *p, t_map *m, t_info info);
+/*
+** matrice.c
+*/
+void				ft_matrice(t_liste *points, int vision, int espace);
 #endif

@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/26 17:47:36 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/27 17:41:37 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		main(int argc, char **argv)
 {
-	// stucture info a cree comportant les info de la fenettre, image, etc.. de mlx
 	t_map	*map;
 	t_liste	*points;
 	t_info	info;
@@ -29,21 +28,15 @@ int		main(int argc, char **argv)
 	points->y = 0;
 	points->z = 0;
 	points->c = 0;
+	points->ox = 0;
+	points->oy = 0;
 	points->next = NULL;
 	if (parssing(map, points, argc, argv) == -1)
 		ft_erreur("Map invalide", 1);
 	info.mlx = mlx_init();
-	info.win = mlx_new_window(info.mlx, 450, 450, "mlx 42 blop");
-//	ft_matrice(points, vision);
-	printf("BLOP : %f\n", ((points->x * cos(vision + points->z)) - (points->y * sin(vision + points->z))));
-	int pos1[3], pos2[3];
-	pos1[0] = 50;
-	pos1[1] = 50;
-	pos1[2] = 0;
-	pos2[0] = 120;
-	pos2[1] = 200;
-	pos2[2] = 0;
-	ft_ligne(pos1, pos2, info);
+	info.win = mlx_new_window(info.mlx, 850, 850, "mlx 42 blop");
+	ft_matrice(points, vision, 20);
+	ft_boucle_draw(points, map, info);
 
 	// while (y <= map->total_y * 20)
 	// {
