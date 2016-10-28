@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/27 17:40:37 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/28 18:30:27 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void				ft_erreur(char *s, int mode);
 int					ft_ishexa(int c);
 int					ft_hexctoi(char	*hex);
 int					ft_col(int couleur);
+int 				ft_degrade(int c1, int c2, int *tmp, int py);
 /*
 ** ligne.c
 */

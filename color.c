@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/28 14:36:24 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/10/28 19:34:33 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,50 +20,6 @@ int		ft_ishexa(int c)
 		return (2);
 	return (0);
 }
-
-// int		ft_hexctoi(char *hex)
-// {
-// 	int		i;
-// 	int		out;
-// 	char	*rev;
-
-// 	i = 0;
-// 	out = 0;
-// 	printf("IN\n");
-// 	if (!hex)
-// 	{
-// 		printf("fail ?\n");
-// 		return (0);
-// 	}
-// 	printf("Before rev %s\n", hex);
-// 	rev = ft_revers(hex);
-// 	printf("After rev %s\n", rev);
-// 	while (i < 6)
-// 	{
-// 		printf("On test : %c\n", rev[i]);
-// 		if (ft_ishexa(rev[i]) == 2)
-// 		{
-// 			out += (((int)rev[i] - 55) * (ft_pow(15, i)));
-// 			printf(" Lettre : %d - %d\n", out, ((int)rev[i] - 55) * (ft_pow(15, i)));
-// 		}
-// 		else if (ft_ishexa(hex[i]) == 1)
-// 		{
-// 			out += (((int)rev[i] - 48) * (ft_pow(15, i)));
-// 			printf("Chiffre :%d - %d\n", out, ((int)rev[i] - 48) * (ft_pow(15, i)));
-// 		}
-// 		else
-// 		{
-// 			printf("Rien fail\n");
-// 			return (0);
-// 		}
-// 		i++;
-// 		printf("NEXT\n");
-// 	}
-// 	free(rev);
-// 	printf("%d\n", 0x0FFFFFF - 0x000FFFF);
-// 	printf("OUT\n");
-// 	return (out);
-// }
 
 int		ft_hexctoi(char *hex)
 {
@@ -93,6 +49,34 @@ int		ft_hexctoi(char *hex)
 	return (out);
 }
 
+int 	ft_degrade(int c1, int c2, int *tmp, int py)
+{
+	int		i;
+
+	c1 = ft_col(c1);
+	c2 = ft_col(c2);
+	if (*tmp == 0)
+		*tmp = 16777215;
+	i = c1 - c2;
+	if (i == 0)
+	{
+		return (c1);
+	}
+	if (i > 0)
+	{
+		*tmp -= i / py;
+		printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
+		return (*tmp);
+	}
+	if (i < 0)
+	{
+		*tmp += i / py;
+		printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
+		return (*tmp);
+	}
+	return (c1);
+}
+
 int		ft_col(int couleur)
 {
 	if (couleur  == 0)
@@ -100,15 +84,3 @@ int		ft_col(int couleur)
 	else
 		return (couleur);
 }
-// int		ft_detect_coul(char *lect)
-// {
-// 	char	**tab;
-
-// 	tab = ft_strstr(lect, ',');
-
-// 	set hauteur atoi tab0
-// 	if tab1
-// 		set couleur hexctoi tab1
-// 	return 1
-
-// }
