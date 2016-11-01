@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/28 19:34:33 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/01 14:16:07 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int 	ft_degrade(int c1, int c2, int *tmp, int py)
 {
 	int		i;
 
+	if (!py)
+		py = 0;
 	c1 = ft_col(c1);
 	c2 = ft_col(c2);
 	if (*tmp == 0)
@@ -64,13 +66,13 @@ int 	ft_degrade(int c1, int c2, int *tmp, int py)
 	}
 	if (i > 0)
 	{
-		*tmp -= i / py;
+		*tmp -= abs(i) / py;
 		printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
 		return (*tmp);
 	}
 	if (i < 0)
 	{
-		*tmp += i / py;
+		*tmp += abs(i) / py;
 		printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
 		return (*tmp);
 	}

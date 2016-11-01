@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/28 19:33:22 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/01 14:38:48 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 	int		py;
 	int		tmp;
 
-	py = hypot(p[1], p[2]);
+	py = hypot(abs(p[0] - p[3]), abs(p[1] - p[4]));
 	tmp = p[2];
 	cumul = d[0] / 2;
 	i = 1;
-	printf("TMP = %d ---------- %d\n", tmp, p[2]);
+	printf("TMP1 = %d p1 = %d,%d p2 = %d,%d c = %d-%d\n", tmp, p[0], p[1], p[3], p[4], p[2], p[5]);
 	while (i <= d[0])
 	{
 		p[0] += dir[0];
@@ -45,9 +45,10 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 	int		py;
 	int		tmp;
 
-	py = hypot(p[0], p[1]);
-	tmp = p[2];
+	py = hypot(abs(p[0] - p[3]), abs(p[1] - p[4]));
+	tmp = ft_col(p[2]);
 	cumul = d[1] / 2;
+	printf("TMP2 = %d p1 = %d,%d p2 = %d,%d c = %d-%d\n", tmp, p[0], p[1], p[3], p[4], p[2], p[5]);
 	i = 1;
 	while (i <= d[1])
 	{

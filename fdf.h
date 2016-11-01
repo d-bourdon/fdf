@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/28 18:30:27 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/01 16:45:54 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_liste
 	int				x;
 	int				y;
 	int				z;
-	int				c;
+	int				c[3];
 	int				ox;
 	int				oy;
 	struct s_liste	*next;
@@ -77,4 +77,8 @@ void				ft_boucle_draw(t_liste *p, t_map *m, t_info info);
 ** matrice.c
 */
 void				ft_matrice(t_liste *points, int vision, int espace);
+/*
+** init.c
+*/
+void				ft_init_inttab(int *tab, int taille);
 #endif

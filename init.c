@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrice.c                                          :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/27 15:33:06 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/01 16:48:43 by dbourdon         ###   ########.fr       */
+/*   Created: 2016/11/01 16:41:35 by dbourdon          #+#    #+#             */
+/*   Updated: 2016/11/01 16:45:57 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_matrice(t_liste *points, int vision, int espace)
+void	ft_init_inttab(int *tab, int taille)
 {
-	t_liste	*p;
+	int		i;
 
-	p = points;
-	while (p)
-	{
-		p->x *= espace;
-		p->y *= espace;
-		p->x += (p->x * cos(vision)) - (p->y * sin(vision));
-		p->y += (p->x * sin(vision)) + (p->y * cos(vision));
-		p->x -= p->z * 2;
-		p->y -= p->z * 2;
-		p = p->next;
-	}
+	i = 0;
+	if (tab)
+		while (i < taille)
+			tab[i++] = 0;
 }
