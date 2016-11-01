@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/28 14:40:01 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/01 17:06:17 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 			return (0);
 		}
 		p->z = ft_atoi(tab[0]);
-		p->c = 0;
-		if (tab[1])
-			p->c = ft_hexctoi(tab[1]);
+		p->c = ft_hexctorgb(tab[1]);
 		p->next = NULL;
 		ft_lstaddend(&points, p);
 		i++;

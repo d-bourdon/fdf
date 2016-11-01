@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/01 14:16:07 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/01 17:27:00 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,38 @@ int		ft_ishexa(int c)
 	return (0);
 }
 
-int		ft_hexctoi(char *hex)
+int		*ft_hexctorvb(char *hex)
 {
 	int		i;
-	int		out;
+	int		j;
+	int		out[3];
 	char	*rev;
 	int		tmp;
 
 	i = 0;
-	out = 0;
+	j = 0;
 	tmp = 0;
+	ft_init_inttab(&out, 3);
 	if (!hex)
-		return (0);
+	{
+		out[0] = 255;
+		out[1] = 255;
+		out[2] = 255;
+		return (out)
+	}
 	rev = ft_revers(hex);
 	while (i < 6)
 	{
 		tmp = ft_ishexa(rev[i]);
 		if (tmp == 2)
-			out += (((int)rev[i] - 55) * (ft_pow(16, i)));
+			out[j] += (((int)rev[i] - 55) * (ft_pow(16, i % 2)));
 		else if (tmp == 1)
-			out += (((int)rev[i] - 48) * (ft_pow(16, i)));
+			out[j] += (((int)rev[i] - 48) * (ft_pow(16, i % 2)));
 		else
 			return (0);
 		i++;
+		if (i % 2 == 0)
+			j++;
 	}
 	free(rev);
 	return (out);
