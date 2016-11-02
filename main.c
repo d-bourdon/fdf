@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/01 16:59:23 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/02 11:23:58 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		main(int argc, char **argv)
 	points->x = 0;
 	points->y = 0;
 	points->z = 0;
-	ft_init_inttab(points->c, 3);
 	points->ox = 0;
 	points->oy = 0;
 	points->next = NULL;
@@ -35,7 +34,7 @@ int		main(int argc, char **argv)
 		ft_erreur("Map invalide", 1);
 	info.mlx = mlx_init();
 	info.win = mlx_new_window(info.mlx, 850, 850, "mlx 42 blop");
-	ft_matrice(points, vision, 50);
+	ft_matrice(points, vision, 20);
 	ft_boucle_draw(points, map, info);
 	mlx_loop(info.mlx);
 	return (1);

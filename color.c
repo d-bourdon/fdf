@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/01 17:27:00 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/02 11:58:00 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_ishexa(int c)
 	return (0);
 }
 
-int		*ft_hexctorvb(char *hex)
+int		*ft_hexctorgb(char *hex)
 {
 	int		i;
 	int		j;
