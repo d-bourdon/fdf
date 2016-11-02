@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/02 11:58:00 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/02 13:53:46 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,30 @@ int		ft_ishexa(int c)
 	return (0);
 }
 
+int		rgbtoi(int r, int g, int b)
+{   
+    return ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
+}
+
 int		*ft_hexctorgb(char *hex)
 {
 	int		i;
 	int		j;
-	int		out[3];
+	int		*out;
 	char	*rev;
 	int		tmp;
 
 	i = 0;
 	j = 0;
 	tmp = 0;
-	ft_init_inttab(&out, 3);
+	out = ft_memalloc(3);
+	ft_init_inttab(out, 3);
 	if (!hex)
 	{
 		out[0] = 255;
 		out[1] = 255;
 		out[2] = 255;
-		return (out)
+		return (out);
 	}
 	rev = ft_revers(hex);
 	while (i < 6)

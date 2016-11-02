@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/02 11:57:56 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/02 13:38:22 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,18 +88,18 @@ void	ft_ligne(int *point, t_info info)
 
 void	ft_dessine(t_liste *p1, t_liste *p2, t_info info)
 {
-	int		pos[10];
+	int		point[10];
 
 	point[0] = p1->x;
-	point[0] = p1->y;
-	point[0] = p1->c[0];
-	point[0] = p1->c[1];
-	point[0] = p1->c[2];
-	point[0] = p2->x;
-	point[0] = p2->y;
-	point[0] = p2->c[0];
-	point[0] = p2->c[1];
-	point[0] = p2->c[2];
+	point[1] = p1->y;
+	point[2] = p1->c[0];
+	point[3] = p1->c[1];
+	point[4] = p1->c[2];
+	point[5] = p2->x;
+	point[6] = p2->y;
+	point[7] = p2->c[0];
+	point[8] = p2->c[1];
+	point[9] = p2->c[2];
 	ft_ligne(point, info);
 }
 

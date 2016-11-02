@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/01 17:01:15 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/02 13:53:43 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,16 @@ void				ft_erreur(char *s, int mode);
 ** color.c
 */
 int					ft_ishexa(int c);
-int					ft_hexctoi(char	*hex);
+int					*ft_hexctorgb(char	*hex);
 int					ft_col(int couleur);
 int 				ft_degrade(int c1, int c2, int *tmp, int py);
+int					rgbtoi(int r, int g, int b);
 /*
 ** ligne.c
 */
 void				trace_ligneg(int *dir, int *p, int *d, t_info info);
 void				trace_ligned(int *dir, int *p, int *d, t_info info);
-void				ft_ligne(int *pos1, int *pos2, t_info info);
+void				ft_ligne(int *point, t_info info);
 void				ft_dessine(t_liste *p1, t_liste *p2, t_info info);
 void				ft_boucle_draw(t_liste *p, t_map *m, t_info info);
 /*
@@ -80,5 +81,5 @@ void				ft_matrice(t_liste *points, int vision, int espace);
 /*
 ** init.c
 */
-void				ft_init_inttab(int **tab, int taille);
+void				ft_init_inttab(int *tab, int taille);
 #endif
