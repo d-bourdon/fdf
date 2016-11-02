@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/02 15:43:53 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/02 16:18:12 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		*ft_hexctorgb(char *hex)
 	int		tmp;
 
 	i = 0;
-	j = 0;
+	j = 2;
 	tmp = 0;
 	out = ft_memalloc(3);
 	ft_init_inttab(out, 3);
@@ -58,7 +58,7 @@ int		*ft_hexctorgb(char *hex)
 			return (0);
 		i++;
 		if (i % 2 == 0)
-			j++;
+			j--;
 	}
 	free(rev);
 	return (out);
@@ -70,22 +70,25 @@ int 	ft_degrade(int *p, int *tmp, int py)
 	int		j;
 
 	j = 0;
-	if (!py)
-		py = 0;
-	while (tmp && tmp[j])
+	printf("NEW BOUCLE\n");
+	while (j < 3)
 	{
 		i = p[j + 2] - p[j + 7];
+		printf("i: %d - %d  = %d a etaler sur %d .tmp: %d - %d - %d \n", p[j + 2], p[j + 7], i, py, tmp[0],tmp[1],tmp[2]);
 		if (i == 0)
+		{
+			//printf("EGALE ZERO %d - %d = 0\n", p[j + 2], p[j + 7]);
 			tmp[j] = p[j + 2];
+		}
 		if (i > 0)
 		{
 			tmp[j] -= abs(i) / py;
-			//printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
+			//printf("ft_degrade1 %d - %d - %d - %d - %d\n", i, j, tmp[j], abs(i) / py, p[j + 7]);
 		}
 		if (i < 0)
 		{
 			tmp[j] += abs(i) / py;
-			//printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
+		//	printf("ft_degrade2 %d - %d - %d - %d -%d\n", i, j, tmp[j], abs(i) / py, p[j + 7]);
 		}
 		j++;
 	}
