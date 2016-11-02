@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/02 13:38:22 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/02 15:44:37 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 	int		cumul;
 	int		i;
 	int		py;
-	int		tmp;
+	int		*tmp;
 
+	tmp = ft_memalloc(3);
+	tmp[0] = p[2];
+	tmp[1] = p[3];
+	tmp[2] = p[4];
 	py = hypot(abs(p[0] - p[3]), abs(p[1] - p[4]));
-	tmp = p[2];
 	cumul = d[0] / 2;
 	i = 1;
-	printf("TMP1 = %d p1 = %d,%d p2 = %d,%d c = %d-%d\n", tmp, p[0], p[1], p[3], p[4], p[2], p[5]);
+	//printf("TMP1 = %d p1 = %d,%d p2 = %d,%d c = %d-%d\n", tmp, p[0], p[1], p[3], p[4], p[2], p[5]);
 	while (i <= d[0])
 	{
 		p[0] += dir[0];
@@ -33,9 +36,10 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 			cumul -= d[0];
 			p[1] += dir[1];
 		}
-		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p[2], p[5], &tmp, py));
+		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p, tmp, py));
 		i++;
 	}
+	free (tmp);
 }
 
 void	trace_ligneg(int *dir, int *p, int *d, t_info info)
@@ -43,12 +47,15 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 	int		cumul;
 	int		i;
 	int		py;
-	int		tmp;
+	int		*tmp;
 
+	tmp = ft_memalloc(3);
+	tmp[0] = p[2];
+	tmp[1] = p[3];
+	tmp[2] = p[4];
 	py = hypot(abs(p[0] - p[3]), abs(p[1] - p[4]));
-	tmp = ft_col(p[2]);
 	cumul = d[1] / 2;
-	printf("TMP2 = %d p1 = %d,%d p2 = %d,%d c = %d-%d\n", tmp, p[0], p[1], p[3], p[4], p[2], p[5]);
+	//printf("TMP2 = %d p1 = %d,%d p2 = %d,%d c = %d-%d\n", tmp, p[0], p[1], p[3], p[4], p[2], p[5]);
 	i = 1;
 	while (i <= d[1])
 	{
@@ -59,7 +66,7 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 			cumul -= d[1];
 			p[0] += dir[0];
 		}
-		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p[2], p[5], &tmp, py));
+		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p, tmp, py));
 		i++;
 	}
 }

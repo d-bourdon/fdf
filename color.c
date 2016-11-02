@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/02 13:53:46 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/02 15:43:53 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,34 +64,32 @@ int		*ft_hexctorgb(char *hex)
 	return (out);
 }
 
-int 	ft_degrade(int c1, int c2, int *tmp, int py)
+int 	ft_degrade(int *p, int *tmp, int py)
 {
 	int		i;
+	int		j;
 
+	j = 0;
 	if (!py)
 		py = 0;
-	c1 = ft_col(c1);
-	c2 = ft_col(c2);
-	if (*tmp == 0)
-		*tmp = 16777215;
-	i = c1 - c2;
-	if (i == 0)
+	while (tmp && tmp[j])
 	{
-		return (c1);
+		i = p[j + 2] - p[j + 7];
+		if (i == 0)
+			tmp[j] = p[j + 2];
+		if (i > 0)
+		{
+			tmp[j] -= abs(i) / py;
+			//printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
+		}
+		if (i < 0)
+		{
+			tmp[j] += abs(i) / py;
+			//printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
+		}
+		j++;
 	}
-	if (i > 0)
-	{
-		*tmp -= abs(i) / py;
-		printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
-		return (*tmp);
-	}
-	if (i < 0)
-	{
-		*tmp += abs(i) / py;
-		printf("c1 | tmp | c2 = %d | %d | %d    i = %d py = %d\n", c1, *tmp, c2, i, py);
-		return (*tmp);
-	}
-	return (c1);
+	return (rgbtoi(tmp[0], tmp[1], tmp[2]));
 }
 
 int		ft_col(int couleur)
