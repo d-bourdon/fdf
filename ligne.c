@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/04 15:02:06 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/04 15:30:32 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 	py = sqrt(pow(abs(p[0] - p[5]), 2) + pow(abs(p[1] - p[6]), 2));
 	cumul = d[0] / 2;
 	i = 1;
-	printf("--------------------- TMP1 %d-%d %d-%d = %d - %d PY= %d\n", p[0],p[5],p[1],p[6],abs(p[0] - p[5]), abs(p[1] - p[6]), py);
 	while (i <= d[0])
 	{
 		p[0] += dir[0];
@@ -38,7 +37,6 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 			p[1] += dir[1];
 		}
 		tmp2 = tmp;
-		//printf("------------- LIGNE couleur: %d MOM PY = %d\n", ft_degrade(p, tmp2, py),  py);
 		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p, tmp, py));
 		i++;
 	}
@@ -59,7 +57,6 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 	tmp[2] = p[4];
 	py = sqrt(pow(abs(p[0] - p[5]), 2) + pow(abs(p[1] - p[6]), 2));
 	cumul = d[1] / 2;
-	printf("TMP2 %d-%d %d-%d = %d - %d PY=%d\n", p[0],p[5],p[1],p[6],abs(p[0] - p[5]), abs(p[1] - p[6]), py);
 	i = 1;
 	while (i <= d[1])
 	{
@@ -71,7 +68,6 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 			p[0] += dir[0];
 		}
 		tmp2 = tmp;
-		//printf("------------- LIGNE2 couleur: %d MON PY= %d\n", ft_degrade(p, tmp2, py), py);		
 		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p, tmp, py));
 		i++;
 	}
@@ -92,7 +88,8 @@ void	ft_ligne(int *point, t_info info)
 		dir[1] = 1;
 	d[0] = abs(d[0]);
 	d[1] = abs(d[1]);
-	mlx_pixel_put(info.mlx, info.win, point[0] + 100, point[1] + 500, rgbtoi(point[0], point[1], point[2]));
+	printf("MON POINT %d-%d-%d\n", point[2], point[3], point[4]);
+	mlx_pixel_put(info.mlx, info.win, point[0] + 100, point[1] + 500, rgbtoi(point[2], point[3], point[4]));
 	if (d[0] > d[1])
 		trace_ligned(dir, point, d, info);
 	else
