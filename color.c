@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/04 14:56:53 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/04 16:27:15 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,9 @@ int 	ft_degrade(int *p, int *tmp, int py)
 	int		j;
 
 	j = 0;
-	printf("NEW BOUCLE py %d\n", py);
 	while (j < 3)
 	{
 		i = p[j + 2] - p[j + 7];
-		printf("i: %d - %d  = %d a etaler sur %d .tmp: %d - %d - %d \n", p[j + 2], p[j + 7], i, py, tmp[0],tmp[1],tmp[2]);
 		if (i == 0)
 		{
 			tmp[j] = p[j + 2];
@@ -93,10 +91,3 @@ int 	ft_degrade(int *p, int *tmp, int py)
 	return (rgbtoi(tmp[0], tmp[1], tmp[2]));
 }
 
-int		ft_col(int couleur)
-{
-	if (couleur  == 0)
-		return (16777215);
-	else
-		return (couleur);
-}

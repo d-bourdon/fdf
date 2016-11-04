@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/04 15:30:32 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/04 15:59:38 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 	int		cumul;
 	int		i;
 	int		py;
-	int		*tmp;
+	int		tmp[3];
 	int		*tmp2;
 
-	tmp = ft_memalloc(3);
 	tmp[0] = p[2];
 	tmp[1] = p[3];
 	tmp[2] = p[4];
 	py = sqrt(pow(abs(p[0] - p[5]), 2) + pow(abs(p[1] - p[6]), 2));
 	cumul = d[0] / 2;
 	i = 1;
-	while (i <= d[0])
+	while (i++ <= d[0])
 	{
 		p[0] += dir[0];
 		cumul += d[1];
@@ -37,10 +36,9 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 			p[1] += dir[1];
 		}
 		tmp2 = tmp;
-		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p, tmp, py));
-		i++;
+		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,
+			ft_degrade(p, tmp, py));
 	}
-	free (tmp);
 }
 
 void	trace_ligneg(int *dir, int *p, int *d, t_info info)
@@ -48,17 +46,16 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 	int		cumul;
 	int		i;
 	int		py;
-	int		*tmp;
+	int		tmp[3];
 	int		*tmp2;
 
-	tmp = ft_memalloc(3);
 	tmp[0] = p[2];
 	tmp[1] = p[3];
 	tmp[2] = p[4];
 	py = sqrt(pow(abs(p[0] - p[5]), 2) + pow(abs(p[1] - p[6]), 2));
 	cumul = d[1] / 2;
 	i = 1;
-	while (i <= d[1])
+	while (i++ <= d[1])
 	{
 		p[1] += dir[1];
 		cumul += d[0];
@@ -68,8 +65,8 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 			p[0] += dir[0];
 		}
 		tmp2 = tmp;
-		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p, tmp, py));
-		i++;
+		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,
+			ft_degrade(p, tmp, py));
 	}
 }
 
@@ -88,8 +85,8 @@ void	ft_ligne(int *point, t_info info)
 		dir[1] = 1;
 	d[0] = abs(d[0]);
 	d[1] = abs(d[1]);
-	printf("MON POINT %d-%d-%d\n", point[2], point[3], point[4]);
-	mlx_pixel_put(info.mlx, info.win, point[0] + 100, point[1] + 500, rgbtoi(point[2], point[3], point[4]));
+	mlx_pixel_put(info.mlx, info.win, point[0] + 100, point[1] + 500,
+		rgbtoi(point[2], point[3], point[4]));
 	if (d[0] > d[1])
 		trace_ligned(dir, point, d, info);
 	else
@@ -113,7 +110,6 @@ void	ft_dessine(t_liste *p1, t_liste *p2, t_info info)
 	ft_ligne(point, info);
 }
 
-
 void	ft_boucle_draw(t_liste *p, t_map *m, t_info info)
 {
 	t_liste *p1;
@@ -129,30 +125,12 @@ void	ft_boucle_draw(t_liste *p, t_map *m, t_info info)
 			ft_dessine(p1, p1->next, info);
 		while (p2 && p2->next && i < m->total_x)
 		{
-			//printf("            On Boucle poy : %d - %d\n", p2->oy, m->total_x);
 			p2 = p2->next;
 			i++;
 		}
 		i = 0;
 		if (p2 && p2->oy > p1->oy)
-		{
-			//printf("            On draw !!!");
 			ft_dessine(p1, p2, info);
-		}
 		p1 = p1->next;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
