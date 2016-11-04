@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/02 16:16:01 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/04 15:02:06 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 	tmp[0] = p[2];
 	tmp[1] = p[3];
 	tmp[2] = p[4];
-	py = hypot(abs(p[0] - p[3]), abs(p[1] - p[4]));
+	py = sqrt(pow(abs(p[0] - p[5]), 2) + pow(abs(p[1] - p[6]), 2));
 	cumul = d[0] / 2;
 	i = 1;
-	printf("TMP1\n");
+	printf("--------------------- TMP1 %d-%d %d-%d = %d - %d PY= %d\n", p[0],p[5],p[1],p[6],abs(p[0] - p[5]), abs(p[1] - p[6]), py);
 	while (i <= d[0])
 	{
 		p[0] += dir[0];
@@ -38,7 +38,7 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 			p[1] += dir[1];
 		}
 		tmp2 = tmp;
-		printf("------------- LIGNE couleur: %d\n", ft_degrade(p, tmp2, py));
+		//printf("------------- LIGNE couleur: %d MOM PY = %d\n", ft_degrade(p, tmp2, py),  py);
 		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p, tmp, py));
 		i++;
 	}
@@ -57,9 +57,9 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 	tmp[0] = p[2];
 	tmp[1] = p[3];
 	tmp[2] = p[4];
-	py = hypot(abs(p[0] - p[3]), abs(p[1] - p[4]));
+	py = sqrt(pow(abs(p[0] - p[5]), 2) + pow(abs(p[1] - p[6]), 2));
 	cumul = d[1] / 2;
-	printf("TMP2\n");
+	printf("TMP2 %d-%d %d-%d = %d - %d PY=%d\n", p[0],p[5],p[1],p[6],abs(p[0] - p[5]), abs(p[1] - p[6]), py);
 	i = 1;
 	while (i <= d[1])
 	{
@@ -71,7 +71,7 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 			p[0] += dir[0];
 		}
 		tmp2 = tmp;
-		printf("------------- LIGNE2 couleur: %d\n", ft_degrade(p, tmp2, py));		
+		//printf("------------- LIGNE2 couleur: %d MON PY= %d\n", ft_degrade(p, tmp2, py), py);		
 		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500, ft_degrade(p, tmp, py));
 		i++;
 	}
