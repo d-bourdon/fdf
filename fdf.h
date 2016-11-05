@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/05 14:29:58 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/05 15:56:29 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void				ft_matrice(t_liste *points, int vision, int espace);
 ** init.c
 */
 void				ft_init_inttab(int *tab, int valeur, int taille);
+t_liste				*ft_init_liste(void);
 #endif

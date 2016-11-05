@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/05 14:42:59 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/05 14:45:59 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	hexa2(int hex, int rev, int i)
 	else if (hex == 1)
 		return (((rev - 48) * (ft_pow(16, i % 2))));
 	else
-		ft_erreur("ERREUR MAP: couleur incorecte", 1);
+		ft_erreur("MAP - couleur incorecte", 1);
 	return (0);
 }
 

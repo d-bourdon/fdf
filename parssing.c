@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/05 14:00:59 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/05 14:46:24 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ int		parssing(t_map *map, t_liste *points, int argc, char **argv)
 				return (-1);
 		}
 	if (fd == -1)
-		ft_erreur("Map inexistante", 1);
+		ft_erreur("MAP - fichier inexistant", 1);
 	return (1);
 }
