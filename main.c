@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/05 15:56:36 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/06 18:39:09 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ int			main(int argc, char **argv)
 	t_liste	*points;
 	t_info	info;
 	int		vision;
-
+	int c,d;
+	c = 1;
+	d = 1;
+	int a;
+	a = 0;
 	ft_bonjour();
 	vision = 30;
 	map = (t_map*)malloc(sizeof(t_map));
@@ -48,9 +52,19 @@ int			main(int argc, char **argv)
 	if (parssing(map, points, argc, argv) == -1)
 		ft_erreur("MAP - fichier invalide", 1);
 	info.mlx = mlx_init();
-	info.win = mlx_new_window(info.mlx, 850, 850, "mlx 42 blop");
+	info.win = mlx_new_window(info.mlx, 850, 850, "mlx 42 - dbourdon");
+	info.img = mlx_new_image(info.mlx, 850, 850);
+	info.data = (int*)mlx_get_data_addr(info.img, &c, &(map->total_x), &d);
+	//while (a < 850*850)
+	//{
+	//	printf("%d\n", a);
+	//	get[a] = 0xff0000;
+	//	a++;
+	//}
+	//printf("STOP\n");
 	ft_matrice(points, vision, 20);
 	ft_boucle_draw(points, map, info);
+	mlx_put_image_to_window(info.mlx, info.win, info.img, 0, 0);
 	mlx_loop(info.mlx);
 	return (1);
 }

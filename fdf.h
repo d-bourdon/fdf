@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/05 15:56:29 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/06 18:35:25 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ typedef struct		s_info
 {
 	void			*mlx;
 	void			*win;
+	void			*img;
+	int 			pixel;
+	int				line;
+	int				*data;
 }					t_info;
 
 /*

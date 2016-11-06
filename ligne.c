@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/04 15:59:38 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/06 18:49:59 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 			p[1] += dir[1];
 		}
 		tmp2 = tmp;
-		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,
-			ft_degrade(p, tmp, py));
+		//mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,
+		info.data[((p[1] + 500) * 850) + p[0] + 100] = (ft_degrade(p, tmp, py));
 	}
 }
 
@@ -65,8 +65,8 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 			p[0] += dir[0];
 		}
 		tmp2 = tmp;
-		mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,
-			ft_degrade(p, tmp, py));
+		//mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,
+		info.data[((p[1] + 500) * 850) + p[0] + 100] = ft_degrade(p, tmp, py);
 	}
 }
 
@@ -85,8 +85,8 @@ void	ft_ligne(int *point, t_info info)
 		dir[1] = 1;
 	d[0] = abs(d[0]);
 	d[1] = abs(d[1]);
-	mlx_pixel_put(info.mlx, info.win, point[0] + 100, point[1] + 500,
-		rgbtoi(point[2], point[3], point[4]));
+	//mlx_pixel_put(info.mlx, info.win, point[0] + 100, point[1] + 500,
+	info.data[((point[1] + 500) * 850) + point[0] + 100] = rgbtoi(point[2], point[3], point[4]);
 	if (d[0] > d[1])
 		trace_ligned(dir, point, d, info);
 	else
