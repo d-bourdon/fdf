@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/06 18:49:59 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/08 11:50:49 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 		tmp2 = tmp;
 		//mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,
 		info.data[((p[1] + 500) * 850) + p[0] + 100] = (ft_degrade(p, tmp, py));
+		printf("%d, %d, %d\n", p[0],p[1], ((p[1] + 500) * 850) + p[0] + 100);
 	}
 }
 
@@ -67,6 +68,7 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 		tmp2 = tmp;
 		//mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,
 		info.data[((p[1] + 500) * 850) + p[0] + 100] = ft_degrade(p, tmp, py);
+		printf("%d, %d, %d\n", p[0],p[1], ((p[1] + 500) * 850) + p[0] + 100);
 	}
 }
 
