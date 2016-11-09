@@ -46,6 +46,7 @@ typedef struct		s_info
 	int 			pixel;
 	int				line;
 	int				*data;
+	int				win
 }					t_info;
 
 /*

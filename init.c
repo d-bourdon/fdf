@@ -39,3 +39,7 @@ t_liste	*ft_init_liste(void)
 	p->next = NULL;
 	return (p);
 }
+void	*init_img(t_liste info)
+{
+	info.img = mlx_new_image(info.mlx, info.winx, info.winy);
+}

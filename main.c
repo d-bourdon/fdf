@@ -53,10 +53,11 @@ int			main(int argc, char **argv)
 	info.mlx = mlx_init();
 	info.win = mlx_new_window(info.mlx, 850, 850, "mlx 42 - dbourdon");
 	info.img = mlx_new_image(info.mlx, 850, 850);
-	info.data = (int*)mlx_get_data_addr(info.img, &c, &(map->total_x), &d);
+	//info.data = (int*)mlx_get_data_addr(info.img, &c, &(map->total_x), &d);
 	ft_bzero(info.data, 850*850*4);
 	ft_matrice(points, vision, 20);
 	ft_boucle_draw(points, map, info);
+	
 	//mlx_put_image_to_window(info.mlx, info.win, info.img, 0, 0);
 	mlx_loop(info.mlx);
 	return (1);
