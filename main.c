@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/09 19:07:20 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/09 20:34:18 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,7 @@ int			main(int argc, char **argv)
 	info.mlx = mlx_init();
 	img->line = map->total_x;
 	info.win = mlx_new_window(info.mlx, info.winx, info.winy, "mlx 42 - dbourdon");
-
-	//info.data = (int*)mlx_get_data_addr(info.img, &c, &(map->total_x), &d);
-	printf("BEFORE\n");
 	init_img(info, img);
-	printf("AFTER\n");
 	ft_matrice(points, vision, 20);
 	ft_boucle_draw(points, map, info);
 	

@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 16:41:35 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/09 19:03:47 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/09 20:33:21 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,10 @@ void	init_img(t_info info, t_img *img)
 	const double    width = info.winx;
     const double    height = info.winy;
     const int        buffer = (int)(width * height * 4.);
-    printf("BLOP\n");
-    img->ptr = mlx_new_image(info.mlx, 850, 850);
-    printf("BLOP\n");
+
+    img->ptr = mlx_new_image(info.mlx, info.winx, info.winy);
     img->imgx = width;
-    printf("BLOP\n");
     img->imgy = height;
-    printf("BLOP %p\n", &(img->line));
-    img->data = mlx_get_data_addr(img->ptr, &(img->bpp), &(img->line), &(img->endian));
-    printf("BLOP\n");
+    img->data = (int*)mlx_get_data_addr(img->ptr, &(img->bpp), &(img->line), &(img->endian));
     ft_bzero(img->data, buffer);
 }

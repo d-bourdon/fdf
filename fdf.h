@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/09 19:03:27 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/09 20:33:47 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_img
 	double			imgy;
 	int				bpp;
 	int				line;
-	char			*data;
+	int				*data;
 	int				endian;
 }					t_img;
 
