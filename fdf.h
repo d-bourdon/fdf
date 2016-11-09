@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/06 18:35:25 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/09 19:03:27 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,26 @@ typedef struct		s_map
 	int				total_y;
 }					t_map;
 
+typedef struct s_img
+{
+	void			*ptr;
+	double			imgx;
+	double			imgy;
+	int				bpp;
+	int				line;
+	char			*data;
+	int				endian;
+}					t_img;
+
 typedef struct		s_info
 {
 	void			*mlx;
 	void			*win;
-	void			*img;
 	int 			pixel;
 	int				line;
-	int				*data;
-	int				win
+	int				winx;
+	int				winy;
+	t_img			*img;
 }					t_info;
 
 /*
@@ -87,4 +98,5 @@ void				ft_matrice(t_liste *points, int vision, int espace);
 */
 void				ft_init_inttab(int *tab, int valeur, int taille);
 t_liste				*ft_init_liste(void);
+void				init_img(t_info info, t_img *img);
 #endif
