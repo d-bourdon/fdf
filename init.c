@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 16:41:35 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/09 20:33:21 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/11 19:03:46 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ void	init_img(t_info info, t_img *img)
     img->imgy = height;
     img->data = (int*)mlx_get_data_addr(img->ptr, &(img->bpp), &(img->line), &(img->endian));
     ft_bzero(img->data, buffer);
+}
+
+void	init_info(t_info *info)
+{
+	info->winx = 850;
+	info->winy = 850;
 }

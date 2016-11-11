@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/09 20:33:47 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/11 18:48:19 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+# define TAILLE_WIN_X 850
+# define TAILLE_WIN_Y 850
 
 typedef struct		s_liste
 {

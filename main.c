@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/09 20:34:18 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/11 19:03:46 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,12 @@ int			main(int argc, char **argv)
 
 	ft_bonjour();
 	img = (t_img*)malloc(sizeof(t_img));
-	img->bpp = 32;
+	img->bpp = 2;
 	img->endian = 0;
 	vision = 30;
 	map = (t_map*)malloc(sizeof(t_map));
 	map->total_y = 0;
 	map->total_x = 0;
-	info.winx = 850;
-	info.winy = 850;
 	info.img = img;
 	points = ft_init_liste();
 	if (parssing(map, points, argc, argv) == -1)
