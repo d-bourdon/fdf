@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 16:41:35 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/12 12:15:55 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/12 15:33:17 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,45 @@ t_liste	*ft_init_liste(void)
 	p->next = NULL;
 	return (p);
 }
-void	init_img(t_info info, t_img *img)
+t_img	*init_img(t_info info)
 {
-	const double    width = info.winx;
-    const double    height = info.winy;
-    const int        buffer = (int)(width * height * 4.);
+	t_img	*img;
+	double	width;
+    double	height;
+    int		buffer;
 
+	width = info.winx;
+	height = info.winy;
+	buffer = (int)(width * height * 4.);
+    img = (t_img*)malloc(sizeof(t_img));
+    img->bpp = 2;
+	img->endian = 0;
     img->ptr = mlx_new_image(info.mlx, info.winx, info.winy);
     img->imgx = width;
     img->imgy = height;
-    img->data = (int*)mlx_get_data_addr(img->ptr, &(img->bpp), &(img->line), &(img->endian));
+    img->data = (int*)mlx_get_data_addr(img->ptr, &(img->bpp), &(img->line),
+    	&(img->endian));
     ft_bzero(img->data, buffer);
+    return (img);
 }
 
-void	init_info(t_info *info, t_img *img)
+void	init_info(t_info *info)
 {
 	info->winx = TAILLE_WIN_X;
 	info->winy = TAILLE_WIN_Y;
+	info->origine[0] = 0;
+	info->origine[1] = 0;
 	info->mlx = mlx_init();
-	info->win = mlx_new_window(info->mlx, info->winx, info->winy, "mlx 42 - dbourdon");
-	info->img = img;
+	info->win = mlx_new_window(info->mlx, info->winx, info->winy,
+		"mlx 42 - dbourdon");
+}
+
+t_map	*init_map(void)
+{
+	t_map	*map;
+
+	map = (t_map*)malloc(sizeof(t_map));
+	map->total_y = 0;
+	map->total_x = 0;
+	return (map);
 }

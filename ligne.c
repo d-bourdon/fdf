@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/09 19:04:40 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/12 16:53:47 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	trace_ligned(int *dir, int *p, int *d, t_info info)
 			p[1] += dir[1];
 		}
 		tmp2 = tmp;
-		printf("%d, %d, %d\n", p[0],p[1], ((p[1] + 500) * 850) + p[0] + 100);
+		//printf("%d, %d, %d\n", p[0],p[1], ((p[1] + 500) * 850) + p[0] + 100);
 		//mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,ft_degrade(p, tmp, py));
 		info.img->data[((p[1] + 500) * 850) + p[0] + 100] = ft_degrade(p, tmp, py);
 	}
@@ -66,7 +66,7 @@ void	trace_ligneg(int *dir, int *p, int *d, t_info info)
 			p[0] += dir[0];
 		}
 		tmp2 = tmp;
-		printf("%d, %d, %d\n", p[0],p[1], ((p[1] + 500) * 850) + p[0] + 100);
+		//printf("%d, %d, %d\n", p[0],p[1], ((p[1] + 500) * 850) + p[0] + 100);
 		//mlx_pixel_put(info.mlx, info.win, p[0] + 100, p[1] + 500,ft_degrade(p, tmp, py));
 		info.img->data[((p[1] + 500) * 850) + p[0] + 100] = ft_degrade(p, tmp, py);
 	}

@@ -6,11 +6,42 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/12 12:16:07 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/12 16:58:46 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int		detecte_cle(int cle,t_info *info)
+{
+	if (cle == 53)
+		exit(0);
+	mlx_clear_window(info->mlx, info->win);
+	if (cle == 123)
+		info->origine[0] -=20;
+	else if (cle == 124)
+		info->origine[0] +=20;
+	else if (cle == 125)
+		info->origine[1] +=20;
+	else if (cle == 126)
+		info->origine[1] -=20;
+	else if (cle == 69)
+	{
+		printf("EHO\n");
+		zoom_point(info->points, 20);
+		printf("LOL %p\n", info->img);
+		mlx_destroy_image(info->mlx, info->img);
+		printf("on destroy\n");
+		info->img = init_img(*info);
+		printf("On reset\n");
+		ft_boucle_draw(info->points, info->map, *info);
+		printf("on a boucle draw\n");
+	}
+	printf("on va put %p - %p - %p\n", info->mlx, info->win, info->img->ptr);
+	mlx_put_image_to_window(info->mlx, info->win, info->img->ptr, info->origine[0], info->origine[1]);
+	printf("On a put windozs\n");
+	return (1);
+}
 
 static void	ft_bonjour(void)
 {
@@ -34,31 +65,22 @@ static void	ft_bonjour(void)
 
 int			main(int argc, char **argv)
 {
-	t_map	*map;
-	t_liste	*points;
 	t_info	info;
-	t_img	*img;
 	int		vision;
 
 	ft_bonjour();
-	img = (t_img*)malloc(sizeof(t_img));
-	img->bpp = 2;
-	img->endian = 0;
+	init_info(&info);
+	info.img = init_img(info);
 	vision = 30;
-	map = (t_map*)malloc(sizeof(t_map));
-	map->total_y = 0;
-	map->total_x = 0;
-	init_info(&info, img);
-	//info.img = img;
-	points = ft_init_liste();
-	if (parssing(map, points, argc, argv) == -1)
+	info.map = init_map();
+	info.points = ft_init_liste();
+	if (parssing(info.map, info.points, argc, argv) == -1)
 		ft_erreur("MAP - fichier invalide", 1);
-	img->line = map->total_x;
-	init_img(info, img);
-	ft_matrice(points, vision, 20);
-	ft_boucle_draw(points, map, info);
-	
-	mlx_put_image_to_window(info.mlx, info.win, img->ptr, 0, 0);
+	info.img->line = info.map->total_x;
+	ft_matrice(info.points, vision, 20);
+	ft_boucle_draw(info.points, info.map, info);
+	mlx_put_image_to_window(info.mlx, info.win, info.img->ptr, 0, 0);
+	mlx_key_hook(info.win, detecte_cle, &info);
 	mlx_loop(info.mlx);
 	return (1);
 }

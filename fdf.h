@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/12 12:16:06 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/12 16:42:03 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,14 @@ typedef struct		s_info
 	int				line;
 	int				winx;
 	int				winy;
+	int				origine[2];
 	t_img			*img;
+	t_map			*map;
+	t_liste			*points;
 }					t_info;
+
+void	zoom_point(t_liste *points, int zoom);
+int		detecte_cle(int cle,t_info *info);
 
 /*
 ** parssing.c
@@ -101,6 +107,7 @@ void				ft_matrice(t_liste *points, int vision, int espace);
 */
 void				ft_init_inttab(int *tab, int valeur, int taille);
 t_liste				*ft_init_liste(void);
-void				init_img(t_info info, t_img *img);
-void				init_info(t_info *info, t_img *img);
+t_img				*init_img(t_info info);
+void				init_info(t_info *info);
+t_map				*init_map(void);
 #endif
