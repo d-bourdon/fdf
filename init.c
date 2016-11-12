@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 16:41:35 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/11 19:03:46 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/12 12:15:55 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,11 @@ void	init_img(t_info info, t_img *img)
     ft_bzero(img->data, buffer);
 }
 
-void	init_info(t_info *info)
+void	init_info(t_info *info, t_img *img)
 {
-	info->winx = 850;
-	info->winy = 850;
+	info->winx = TAILLE_WIN_X;
+	info->winy = TAILLE_WIN_Y;
+	info->mlx = mlx_init();
+	info->win = mlx_new_window(info->mlx, info->winx, info->winy, "mlx 42 - dbourdon");
+	info->img = img;
 }

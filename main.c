@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/11 19:03:46 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/12 12:16:07 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,12 @@ int			main(int argc, char **argv)
 	map = (t_map*)malloc(sizeof(t_map));
 	map->total_y = 0;
 	map->total_x = 0;
-	info.img = img;
+	init_info(&info, img);
+	//info.img = img;
 	points = ft_init_liste();
 	if (parssing(map, points, argc, argv) == -1)
 		ft_erreur("MAP - fichier invalide", 1);
-	info.mlx = mlx_init();
 	img->line = map->total_x;
-	info.win = mlx_new_window(info.mlx, info.winx, info.winy, "mlx 42 - dbourdon");
 	init_img(info, img);
 	ft_matrice(points, vision, 20);
 	ft_boucle_draw(points, map, info);
