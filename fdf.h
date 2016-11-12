@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/12 16:42:03 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/12 18:19:35 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct		s_info
 	t_liste			*points;
 }					t_info;
 
-void	zoom_point(t_liste *points, int zoom);
+void	zoom_point(t_liste *points, float zoom);
 int		detecte_cle(int cle,t_info *info);
 
 /*

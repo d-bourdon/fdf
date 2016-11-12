@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/12 16:58:46 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/12 18:19:39 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		detecte_cle(int cle,t_info *info)
 	else if (cle == 69)
 	{
 		printf("EHO\n");
-		zoom_point(info->points, 20);
-		printf("LOL %p\n", info->img);
-		mlx_destroy_image(info->mlx, info->img);
+		zoom_point(info->points, 1.5);
+		printf("LOL %p\n", &(info->mlx));
+		mlx_destroy_image(info->mlx, info->img->ptr);
 		printf("on destroy\n");
 		info->img = init_img(*info);
 		printf("On reset\n");
