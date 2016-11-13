@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/12 18:19:35 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/13 16:52:27 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct		s_info
 	int				winx;
 	int				winy;
 	int				origine[2];
+	float			vision;
 	t_img			*img;
 	t_map			*map;
 	t_liste			*points;
@@ -101,7 +102,9 @@ void				ft_boucle_draw(t_liste *p, t_map *m, t_info info);
 /*
 ** matrice.c
 */
-void				ft_matrice(t_liste *points, int vision, int espace);
+void				ft_matrice(t_liste *points, float vision, int espace);
+void				ft_visionplus(t_liste *points);
+void				ft_visionmoins(t_liste *points);
 /*
 ** init.c
 */
