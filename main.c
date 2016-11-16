@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/13 17:21:44 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/16 18:31:14 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,22 @@ int		detecte_cle(int cle,t_info *info)
 		exit(0);
 	mlx_clear_window(info->mlx, info->win);
 	if (cle == 123)
-		info->origine[0] -=20;
+		deplace(info->points, 'x', '-');
 	else if (cle == 124)
-		info->origine[0] +=20;
+		deplace(info->points, 'x', '+');
 	else if (cle == 125)
-		info->origine[1] +=20;
+		deplace(info->points, 'y', '-');
 	else if (cle == 126)
-		info->origine[1] -=20;
+		deplace(info->points, 'y', '+');
 	else if (cle == 69)
-	{
 		ft_visionplus(info->points);
-		mlx_destroy_image(info->mlx, info->img->ptr);
-		info->img = init_img(*info);
-		ft_boucle_draw(info->points, info->map, *info);
-	}
 	else if (cle == 78)
-	{
 		ft_visionmoins(info->points);
-		mlx_destroy_image(info->mlx, info->img->ptr);
-		info->img = init_img(*info);
-		ft_boucle_draw(info->points, info->map, *info);
-	}
-	printf("on va put %p - %p - %p\n", info->mlx, info->win, info->img->ptr);
+	//else if (cle == )
+	mlx_destroy_image(info->mlx, info->img->ptr);
+	info->img = init_img(*info);
+	ft_boucle_draw(info->points, info->map, *info);
 	mlx_put_image_to_window(info->mlx, info->win, info->img->ptr, info->origine[0], info->origine[1]);
-	printf("On a put windozs\n");
 	return (1);
 }
 
@@ -78,7 +70,7 @@ int			main(int argc, char **argv)
 	if (parssing(info.map, info.points, argc, argv) == -1)
 		ft_erreur("MAP - fichier invalide", 1);
 	info.img->line = info.map->total_x;
-	ft_matrice(info.points, info.vision, 20);
+	ft_matrice(info.points, info.vision, 2);
 	ft_boucle_draw(info.points, info.map, info);
 	mlx_put_image_to_window(info.mlx, info.win, info.img->ptr, 0, 0);
 	mlx_key_hook(info.win, detecte_cle, &info);

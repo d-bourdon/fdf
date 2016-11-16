@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 15:33:06 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/13 16:50:45 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/16 18:03:36 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_matrice(t_liste *points, float vision, int espace)
 		p = p->next;
 	}
 }
+
 void	ft_visionplus(t_liste *points)
 {
 	t_liste	*p;
@@ -41,6 +42,7 @@ void	ft_visionplus(t_liste *points)
 		p = p->next;
 	}
 }
+
 void	ft_visionmoins(t_liste *points)
 {
 	t_liste	*p;
