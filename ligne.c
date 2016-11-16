@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/16 18:24:29 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/16 19:42:12 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	limite_win(int x, int y, t_info info)
 {
-	if (x > info.winx || x < 0)
+	if (x > info.winx - 1 || x < 0)
 		return (0);
-	if (y > info.winy || x < 0)
+	if (y > info.winy - 1 || x < 0)
 		return (0);
 	return (1);
 }

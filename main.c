@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/16 18:31:14 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/16 19:51:04 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,22 @@ int		detecte_cle(int cle,t_info *info)
 	else if (cle == 124)
 		deplace(info->points, 'x', '+');
 	else if (cle == 125)
-		deplace(info->points, 'y', '-');
-	else if (cle == 126)
 		deplace(info->points, 'y', '+');
+	else if (cle == 126)
+		deplace(info->points, 'y', '-');
 	else if (cle == 69)
 		ft_visionplus(info->points);
 	else if (cle == 78)
 		ft_visionmoins(info->points);
-	//else if (cle == )
+	else if (cle == 81)
+		zoom_point(info->points, 1.2);
+	else if (cle == 75)
+		zoom_point(info->points, 1 / 1.2);
+	else if (cle == 76 || cle == 36)
+	{
+		clear_point(info->points);
+		ft_matrice(info->points, info->vision, (info->winx - 500)/ info->map->total_x);
+	}
 	mlx_destroy_image(info->mlx, info->img->ptr);
 	info->img = init_img(*info);
 	ft_boucle_draw(info->points, info->map, *info);
@@ -49,9 +57,9 @@ static void	ft_bonjour(void)
 	ft_putstr("*                                                *\n");
 	ft_putstr("**************************************************\033[00m\n\n");
 	ft_putstr("\033[01m------------------ Utilisation -------------------\n");
-	ft_putstr("- \033[30;43mesc\033[37;1;40m : Ferme le programe.\n\n");
-	ft_putstr("- \033[30;43m+/-\033[37;1;40m : Zoom sur la structure\n\n");
-	ft_putstr("- \033[30;43mflèches directionelles\033[37;1;40m : déplace la");
+	ft_putstr("- \033[0;30;43mesc\033[37;1;40m : Ferme le programe.\n\n");
+	ft_putstr("- \033[0;30;43m+/-\033[37;1;40m : Zoom sur la structure\n\n");
+	ft_putstr("- \033[0;30;43mflèches directionelles\033[37;1;40m : déplace la");
 	ft_putstr(" structure \n\n");
 	ft_putstr("--------------------------------------------------\n\033[00m");
 	ft_putstr("2016 - dbourdon\n\n");
@@ -70,7 +78,7 @@ int			main(int argc, char **argv)
 	if (parssing(info.map, info.points, argc, argv) == -1)
 		ft_erreur("MAP - fichier invalide", 1);
 	info.img->line = info.map->total_x;
-	ft_matrice(info.points, info.vision, 2);
+	ft_matrice(info.points, info.vision, (info.winx - 500)/ info.map->total_x);
 	ft_boucle_draw(info.points, info.map, info);
 	mlx_put_image_to_window(info.mlx, info.win, info.img->ptr, 0, 0);
 	mlx_key_hook(info.win, detecte_cle, &info);
