@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 16:30:05 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/16 19:49:12 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 11:04:12 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	zoom_point(t_liste *points, float zoom)
 		tmp->y *= zoom;
 		tmp = tmp->next;
 	}
-	//printf("On a ++\n");
 }
 void	clear_point(t_liste *points)
 {
