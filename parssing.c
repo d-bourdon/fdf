@@ -6,13 +6,24 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/05 14:46:24 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 16:54:48 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
+static void	st_set_valeur(t_liste *p, int i, int j, char **tab)
+{
+	p->x = i;
+	p->ox = i;
+	p->y = j;
+	p->oy = j;
+	p->z = ft_atoi(tab[0]);
+	p->c = ft_hexctorgb(tab[1]);
+	p->next = NULL;
+}
+
+int			ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 {
 	int		i;
 	int		j;
@@ -21,21 +32,13 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 
 	i = 0;
 	j = map->total_y;
-	while(ligne[i])
+	while (ligne[i])
 	{
 		p = (t_liste*)malloc(sizeof(t_liste));
-		p->x = i;
-		p->ox = i;
-		p->y = j;
-		p->oy = j;
 		tab = ft_strsplit(ligne[i], ',');
 		if (!ft_isnbr(tab[0]))
-		{
 			return (0);
-		}
-		p->z = ft_atoi(tab[0]);
-		p->c = ft_hexctorgb(tab[1]);
-		p->next = NULL;
+		st_set_valeur(p, i, j, tab);
 		ft_lstaddend(&points, p);
 		i++;
 		tab[1] = NULL;
@@ -48,7 +51,7 @@ int		ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 	return (1);
 }
 
-int		parssing(t_map *map, t_liste *points, int argc, char **argv)
+int			parssing(t_map *map, t_liste *points, int argc, char **argv)
 {
 	char	*tmp;
 	char	**tmp2;
@@ -62,8 +65,8 @@ int		parssing(t_map *map, t_liste *points, int argc, char **argv)
 		while (i != 0 && i != -1)
 		{
 			i = get_next_line(fd, &tmp);
-				if (i == -1)
-					return (-1);
+			if (i == -1)
+				return (-1);
 			if (i == 0)
 				return (1);
 			tmp2 = ft_strsplit(tmp, ' ');

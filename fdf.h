@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/16 19:49:11 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 16:43:55 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct		s_map
 	int				total_y;
 }					t_map;
 
-typedef struct s_img
+typedef struct		s_img
 {
 	void			*ptr;
 	double			imgx;
@@ -56,7 +56,7 @@ typedef struct		s_info
 {
 	void			*mlx;
 	void			*win;
-	int 			pixel;
+	int				pixel;
 	int				line;
 	int				winx;
 	int				winy;
@@ -67,10 +67,16 @@ typedef struct		s_info
 	t_liste			*points;
 }					t_info;
 
-void	zoom_point(t_liste *points, float zoom);
-int		detecte_cle(int cle,t_info *info);
-void	deplace(t_liste *points, char xy, char mp);
-void	clear_point(t_liste *points);
+/*
+** main.c
+*/
+int					detecte_cle(int cle, t_info *info);
+/*
+** zoom.c
+*/
+void				zoom_point(t_liste *points, float zoom);
+void				deplace(t_liste *points, char xy, char mp);
+void				clear_point(t_liste *points);
 /*
 ** parssing.c
 */
@@ -90,7 +96,7 @@ void				ft_erreur(char *s, int mode);
 */
 int					ft_ishexa(int c);
 int					*ft_hexctorgb(char	*hex);
-int 				ft_degrade(int *p, int *tmp, int py);
+int					ft_degrade(int *p, int *tmp, int py);
 int					rgbtoi(int r, int g, int b);
 /*
 ** ligne.c
@@ -99,13 +105,13 @@ void				trace_ligneg(int *dir, int *p, int *d, t_info info);
 void				trace_ligned(int *dir, int *p, int *d, t_info info);
 void				ft_ligne(int *point, t_info info);
 void				ft_dessine(t_liste *p1, t_liste *p2, t_info info);
-void				ft_boucle_draw(t_liste *p, t_map *m, t_info info);
 /*
 ** matrice.c
 */
 void				ft_matrice(t_liste *points, float vision, int espace);
 void				ft_visionplus(t_liste *points);
 void				ft_visionmoins(t_liste *points);
+void				ft_boucle_draw(t_liste *p, t_map *m, t_info info);
 /*
 ** init.c
 */

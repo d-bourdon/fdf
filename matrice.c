@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 15:33:06 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/16 18:03:36 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 16:47:44 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_visionplus(t_liste *points)
 	p = points;
 	while (p)
 	{
-
 		p->x -= p->z;
 		p->y -= p->z;
 		p = p->next;
@@ -50,9 +49,33 @@ void	ft_visionmoins(t_liste *points)
 	p = points;
 	while (p)
 	{
-
 		p->x += p->z;
 		p->y += p->z;
 		p = p->next;
+	}
+}
+
+void	ft_boucle_draw(t_liste *p, t_map *m, t_info info)
+{
+	t_liste *p1;
+	t_liste *p2;
+	int		i;
+
+	p1 = p;
+	i = 0;
+	while (p1)
+	{
+		p2 = p1;
+		if (p1 && p1->next && p1->next->oy == p1->oy)
+			ft_dessine(p1, p1->next, info);
+		while (p2 && p2->next && i < m->total_x)
+		{
+			p2 = p2->next;
+			i++;
+		}
+		i = 0;
+		if (p2 && p2->oy > p1->oy)
+			ft_dessine(p1, p2, info);
+		p1 = p1->next;
 	}
 }

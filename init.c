@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 16:41:35 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/12 18:54:56 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 15:36:14 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,27 @@ t_liste	*ft_init_liste(void)
 	p->next = NULL;
 	return (p);
 }
+
 t_img	*init_img(t_info info)
 {
 	t_img	*img;
 	double	width;
-    double	height;
-    int		buffer;
+	double	height;
+	int		buffer;
 
 	width = info.winx;
 	height = info.winy;
 	buffer = (int)(width * height * 4.);
-    img = (t_img*)malloc(sizeof(t_img));
-    img->bpp = 2;
+	img = (t_img*)malloc(sizeof(t_img));
+	img->bpp = 2;
 	img->endian = 0;
-    img->ptr = mlx_new_image(info.mlx, info.winx, info.winy);
-    img->imgx = width;
-    img->imgy = height;
-    img->data = (int*)mlx_get_data_addr(img->ptr, &(img->bpp), &(img->line),
-    	&(img->endian));
-    ft_bzero(img->data, buffer);
-    return (img);
+	img->ptr = mlx_new_image(info.mlx, info.winx, info.winy);
+	img->imgx = width;
+	img->imgy = height;
+	img->data = (int*)mlx_get_data_addr(img->ptr, &(img->bpp), &(img->line),
+		&(img->endian));
+	ft_bzero(img->data, buffer);
+	return (img);
 }
 
 void	init_info(t_info *info)

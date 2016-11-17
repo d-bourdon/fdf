@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 16:30:05 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/17 11:04:12 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 15:45:55 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ void	deplace(t_liste *points, char xy, char mp)
 
 	tmp = points;
 	while (tmp)
-	{	
+	{
 		if (xy == 'x')
 		{
 			if (mp == '+')
 				tmp->x += 20;
 			else
-				tmp->x -=20;
+				tmp->x -= 20;
 		}
 		else if (xy == 'y')
 		{
 			if (mp == '+')
 				tmp->y += 20;
 			else
-				tmp->y -=20;
+				tmp->y -= 20;
 		}
 		tmp = tmp->next;
 	}
@@ -49,6 +49,7 @@ void	zoom_point(t_liste *points, float zoom)
 		tmp = tmp->next;
 	}
 }
+
 void	clear_point(t_liste *points)
 {
 	t_liste *tmp;

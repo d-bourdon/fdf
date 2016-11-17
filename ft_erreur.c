@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/12 11:26:45 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/05 15:48:06 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 15:39:27 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_erreur(char *s, int mode)
 		ft_putstr("\033[1;41mErreur\033[40m : ");
 		ft_putstr(s);
 		ft_putstr("\n\033[00m");
-		exit (666);
+		exit(1);
 	}
 }
