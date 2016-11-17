@@ -6,21 +6,21 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 15:33:06 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/17 16:47:44 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 21:06:04 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_matrice(t_liste *points, float vision, int espace)
+void	ft_matrice(t_liste *points, float vision, t_map *map)
 {
 	t_liste	*p;
 
 	p = points;
 	while (p)
 	{
-		p->x *= espace;
-		p->y *= espace;
+		p->x = p->x * ((TAILLE_WIN_X - 250) / map->total_x);
+		p->y = p->y * ((TAILLE_WIN_Y - 250) / map->total_y);
 		p->x += (p->x * cos(vision)) - (p->y * sin(vision));
 		p->y += (p->x * sin(vision)) + (p->y * cos(vision));
 		p->x -= p->z * 2;

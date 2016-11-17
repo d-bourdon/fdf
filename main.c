@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/17 16:34:10 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 21:11:08 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ int			detecte_cle(int cle, t_info *info)
 	else if (cle == 76 || cle == 36)
 	{
 		clear_point(info->points);
-		ft_matrice(info->points, info->vision,
-			(info->winx - 500) / info->map->total_x);
+		ft_matrice(info->points, info->vision, info->map);
 	}
 	mlx_destroy_image(info->mlx, info->img->ptr);
 	info->img = init_img(*info);
@@ -82,16 +81,22 @@ int			main(int argc, char **argv)
 	t_info	info;
 
 	ft_bonjour();
+	if (TAILLE_WIN_X != TAILLE_WIN_Y)
+		ft_erreur("CONFIG - taille de la fenetre non valide", 1);
 	init_info(&info);
 	info.img = init_img(info);
 	info.vision = 36.39;
 	info.map = init_map();
 	info.points = ft_init_liste();
+	ft_putstr("\033[1;34m@ Parssing de la map en cours ...\033[00m\n");
 	if (parssing(info.map, info.points, argc, argv) == -1)
 		ft_erreur("MAP - fichier invalide", 1);
 	info.img->line = info.map->total_x;
-	ft_matrice(info.points, info.vision, (info.winx - 500) / info.map->total_x);
+	ft_putstr("\033[1;34m@ Application de la matrice ...\033[00m\n");
+	ft_matrice(info.points, info.vision, info.map);
+	ft_putstr("\033[1;34m@ Dessin en cours ...\033[00m\n");
 	ft_boucle_draw(info.points, info.map, info);
+	ft_putstr("\033[1;34m@ Enjoy :D ! \033[00m\n");
 	mlx_put_image_to_window(info.mlx, info.win, info.img->ptr, 0, 0);
 	mlx_key_hook(info.win, detecte_cle, &info);
 	mlx_loop(info.mlx);

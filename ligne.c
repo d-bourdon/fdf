@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/17 16:44:17 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/17 18:38:19 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void		trace_ligned(int *dir, int *p, int *d, t_info info)
 			cumul -= d[0];
 			p[1] += dir[1];
 		}
-		if (limite_win(p[0] + 100, p[1] + 500, info))
-			info.img->data[((p[1] + 500) * info.winy) + p[0] +
+		if (limite_win(p[0] + 100, p[1] + 600, info))
+			info.img->data[((p[1] + 600) * info.winy) + p[0] +
 				100] = ft_degrade(p, tmp, py);
 	}
 }
@@ -71,8 +71,8 @@ void		trace_ligneg(int *dir, int *p, int *d, t_info info)
 			cumul -= d[1];
 			p[0] += dir[0];
 		}
-		if (limite_win(p[0] + 100, p[1] + 500, info))
-			info.img->data[((p[1] + 500) * info.winy) + p[0] +
+		if (limite_win(p[0] + 100, p[1] + 600, info))
+			info.img->data[((p[1] + 600) * info.winy) + p[0] +
 				100] = ft_degrade(p, tmp, py);
 	}
 }
@@ -92,8 +92,8 @@ void		ft_ligne(int *point, t_info info)
 		dir[1] = 1;
 	d[0] = abs(d[0]);
 	d[1] = abs(d[1]);
-	if (limite_win(point[0] + 100, point[1] + 500, info))
-		info.img->data[((point[1] + 500) * info.winy) + point[0] +
+	if (limite_win(point[0] + 100, point[1] + 600, info))
+		info.img->data[((point[1] + 600) * info.winy) + point[0] +
 			100] = rgbtoi(point[2], point[3], point[4]);
 	if (d[0] > d[1])
 		trace_ligned(dir, point, d, info);
