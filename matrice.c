@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 15:33:06 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/21 18:15:16 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/21 18:22:30 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,40 +32,27 @@ void	ft_matrice(t_liste *points, float vision, t_map *map)
 	}
 }
 
-void	ft_visionplus(t_liste *points, t_map *map)
+void	ft_visionplus(t_liste *points)
 {
 	t_liste	*p;
-	float	a;
-	float	b;
-
-	a = 0.5;
-	b = map->total_x;
 
 	p = points;
 	while (p)
 	{
 		p->y += p->z;
 		p = p->next;
-
-
 	}
 }
 
-void	ft_visionmoins(t_liste *points, t_map *map)
+void	ft_visionmoins(t_liste *points)
 {
 	t_liste	*p;
-	float	a;
-	float	b;
-
-	a = 0.5;
-	b = map->total_x;
 
 	p = points;
 	while (p)
 	{
 		p->y -= p->z;
 		p = p->next;
-
 	}
 }
 

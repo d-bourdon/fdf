@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/21 18:10:47 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/21 18:29:47 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 /*
 ** TAILLE_WIN_X == TAILLE_WIN_Y
 */
-# define TAILLE_WIN_X 850
-# define TAILLE_WIN_Y 850
+# define TAILLE_WIN_X 1300
+# define TAILLE_WIN_Y 1300
 
 typedef struct		s_liste
 {
@@ -106,14 +106,14 @@ int					rgbtoi(int r, int g, int b);
 */
 void				trace_ligneg(int *dir, int *p, int *d, t_info info);
 void				trace_ligned(int *dir, int *p, int *d, t_info info);
-void				ft_ligne(int *point, t_info info);
+void				ft_ligne(int *p, t_info info);
 void				ft_dessine(t_liste *p1, t_liste *p2, t_info info);
 /*
 ** matrice.c
 */
 void				ft_matrice(t_liste *points, float vision, t_map *map);
-void				ft_visionplus(t_liste *points, t_map *map);
-void				ft_visionmoins(t_liste *points, t_map *map);
+void				ft_visionplus(t_liste *points);
+void				ft_visionmoins(t_liste *points);
 void				ft_boucle_draw(t_liste *p, t_map *m, t_info info);
 /*
 ** init.c

@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/21 18:07:52 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/21 18:28:58 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void		trace_ligned(int *dir, int *p, int *d, t_info info)
 			cumul -= d[0];
 			p[1] += dir[1];
 		}
-		if (limite_win(p[0] + (TAILLE_WIN_X / 2), p[1] + (TAILLE_WIN_Y / 2), info))
-			info.img->data[((p[1] + (TAILLE_WIN_Y / 2)) * info.winy) + p[0] +
-				(TAILLE_WIN_X / 2)] = ft_degrade(p, tmp, py);
+		if (limite_win(p[0] + (info.winx / 2), p[1] + (info.winy / 2), info))
+			info.img->data[((p[1] + (info.winy / 2)) * info.winy) + p[0] +
+				(info.winx / 2)] = ft_degrade(p, tmp, py);
 	}
 }
 
@@ -71,19 +71,19 @@ void		trace_ligneg(int *dir, int *p, int *d, t_info info)
 			cumul -= d[1];
 			p[0] += dir[0];
 		}
-		if (limite_win(p[0] + (TAILLE_WIN_X / 2), p[1] + (TAILLE_WIN_Y / 2), info))
-			info.img->data[((p[1] + (TAILLE_WIN_Y / 2)) * info.winy) + p[0] +
-				(TAILLE_WIN_X / 2)] = ft_degrade(p, tmp, py);
+		if (limite_win(p[0] + (info.winx / 2), p[1] + (info.winy / 2), info))
+			info.img->data[((p[1] + (info.winy / 2)) * info.winy) + p[0] +
+				(info.winx / 2)] = ft_degrade(p, tmp, py);
 	}
 }
 
-void		ft_ligne(int *point, t_info info)
+void		ft_ligne(int *p, t_info info)
 {
 	int		d[2];
 	int		dir[2];
 
-	d[0] = point[5] - point[0];
-	d[1] = point[6] - point[1];
+	d[0] = p[5] - p[0];
+	d[1] = p[6] - p[1];
 	dir[0] = -1;
 	dir[1] = -1;
 	if (d[0] > 0)
@@ -92,13 +92,13 @@ void		ft_ligne(int *point, t_info info)
 		dir[1] = 1;
 	d[0] = abs(d[0]);
 	d[1] = abs(d[1]);
-	if (limite_win(point[0] + (TAILLE_WIN_X / 2), point[1] + (TAILLE_WIN_Y / 2), info))
-		info.img->data[((point[1] + (TAILLE_WIN_Y / 2)) * info.winy) + point[0] +
-			(TAILLE_WIN_X / 2)] = rgbtoi(point[2], point[3], point[4]);
+	if (limite_win(p[0] + (info.winx / 2), p[1] + (info.winy / 2), info))
+		info.img->data[((p[1] + (info.winy / 2)) * info.winy) + p[0] +
+			(info.winx / 2)] = rgbtoi(p[2], p[3], p[4]);
 	if (d[0] > d[1])
-		trace_ligned(dir, point, d, info);
+		trace_ligned(dir, p, d, info);
 	else
-		trace_ligneg(dir, point, d, info);
+		trace_ligneg(dir, p, d, info);
 }
 
 void		ft_dessine(t_liste *p1, t_liste *p2, t_info info)

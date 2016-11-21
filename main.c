@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/21 18:10:53 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/21 18:21:55 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	detecte_cle2(int cle, t_info *info)
 	else if (cle == 126)
 		deplace(info->points, 'y', '-');
 	else if (cle == 81)
-		ft_visionplus(info->points, info->map);
+		ft_visionplus(info->points);
 	else if (cle == 75)
-		ft_visionmoins(info->points, info->map);
+		ft_visionmoins(info->points);
 	else
 		return ;
 }
