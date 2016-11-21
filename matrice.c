@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 15:33:06 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/21 17:41:23 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/21 18:15:16 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void	ft_matrice(t_liste *points, float vision, t_map *map)
 		p->y = p->y * ((TAILLE_WIN_Y - 250) / map->total_y);
 		p->x = a * p->x - b * p->y;
 		p->y = -p->z + (a / 2) * p->x + (b / 2) * p->y;
-	//	p->x -= p->z * 2;
-	//	p->y -= p->z * 2;
 		p = p->next;
 	}
 }
@@ -41,15 +39,11 @@ void	ft_visionplus(t_liste *points, t_map *map)
 	float	b;
 
 	a = 0.5;
-	b = 0.5;
+	b = map->total_x;
 
 	p = points;
 	while (p)
 	{
-		p->x = p->ox * ((TAILLE_WIN_X - 250) / map->total_x);
-		p->y = p->oy * ((TAILLE_WIN_Y - 250) / map->total_y);
-		p->x = a * p->x - b * p->y;
-		p->y = p->z + (a / 2) * p->x + (b / 2) * p->y;
 		p->y += p->z;
 		p = p->next;
 
@@ -64,15 +58,11 @@ void	ft_visionmoins(t_liste *points, t_map *map)
 	float	b;
 
 	a = 0.5;
-	b = 0.5;
+	b = map->total_x;
 
 	p = points;
 	while (p)
 	{
-		p->x = p->ox * ((TAILLE_WIN_X - 250) / map->total_x);
-		p->y = p->oy * ((TAILLE_WIN_Y - 250) / map->total_y);
-		p->x = a * p->x - b * p->y;
-		p->y = p->z + (a / 2) * p->x + (b / 2) * p->y;
 		p->y -= p->z;
 		p = p->next;
 
