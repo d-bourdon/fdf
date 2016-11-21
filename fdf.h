@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/17 21:11:23 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/21 17:20:30 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ void				ft_dessine(t_liste *p1, t_liste *p2, t_info info);
 ** matrice.c
 */
 void				ft_matrice(t_liste *points, float vision, t_map *map);
-void				ft_visionplus(t_liste *points);
-void				ft_visionmoins(t_liste *points);
+void				ft_visionplus(t_liste *points, t_map *map);
+void				ft_visionmoins(t_liste *points, t_map *map);
 void				ft_boucle_draw(t_liste *p, t_map *m, t_info info);
 /*
 ** init.c

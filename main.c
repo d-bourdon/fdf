@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:23:51 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/17 21:11:08 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/21 17:19:23 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	detecte_cle2(int cle, t_info *info)
 	else if (cle == 126)
 		deplace(info->points, 'y', '-');
 	else if (cle == 81)
-		ft_visionplus(info->points);
+		ft_visionplus(info->points, info->map);
 	else if (cle == 75)
-		ft_visionmoins(info->points);
+		ft_visionmoins(info->points, info->map);
 	else
 		return ;
 }
@@ -85,7 +85,7 @@ int			main(int argc, char **argv)
 		ft_erreur("CONFIG - taille de la fenetre non valide", 1);
 	init_info(&info);
 	info.img = init_img(info);
-	info.vision = 36.39;
+	info.vision = 1.20;
 	info.map = init_map();
 	info.points = ft_init_liste();
 	ft_putstr("\033[1;34m@ Parssing de la map en cours ...\033[00m\n");
