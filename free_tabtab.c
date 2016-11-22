@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   free_tabtab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 13:48:41 by paim              #+#    #+#             */
-/*   Updated: 2016/11/22 15:36:40 by dbourdon         ###   ########.fr       */
+/*   Created: 2016/08/18 12:18:22 by dbourdon          #+#    #+#             */
+/*   Updated: 2016/11/22 15:26:50 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
 
-int	ft_atoi(const char *str)
+void	free_tabtab(char **tab)
 {
 	int		i;
-	int		val;
-	int		check;
 
 	i = 0;
-	val = 0;
-	check = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == 45)
-		check = 1;
-	if (str[i] == 43 || str[i] == 45)
-		i++;
-	while (str[i] >= '0' && str[i] <= '9' && str[i])
+	while (tab && tab[i])
 	{
-		val = val * 10;
-		val = (str[i] - 48) + val;
+		if (tab[i])
+			free(tab[i]);
 		i++;
 	}
-	if (check)
-		val = val * -1;
-	return (val);
+	if (tab)
+		free(tab);
 }
+

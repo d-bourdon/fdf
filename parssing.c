@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 15:34:42 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/17 16:54:48 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/22 15:34:01 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int			ft_set_valeur(char **ligne, t_map *map, t_liste *points)
 		st_set_valeur(p, i, j, tab);
 		ft_lstaddend(&points, p);
 		i++;
+		free_tabtab(tab);
 		tab[1] = NULL;
 	}
 	map->total_y = j + 1;
@@ -60,10 +61,10 @@ int			parssing(t_map *map, t_liste *points, int argc, char **argv)
 
 	i = 1;
 	argc++;
-	tmp = NULL;
 	if ((fd = open(argv[1], O_RDONLY)) != -1)
 		while (i != 0 && i != -1)
 		{
+			tmp = NULL;
 			i = get_next_line(fd, &tmp);
 			if (i == -1)
 				return (-1);
@@ -72,6 +73,8 @@ int			parssing(t_map *map, t_liste *points, int argc, char **argv)
 			tmp2 = ft_strsplit(tmp, ' ');
 			if (ft_set_valeur(tmp2, map, points) == 0)
 				return (-1);
+			free(tmp);
+			free_tabtab(tmp2);
 		}
 	if (fd == -1)
 		ft_erreur("MAP - fichier inexistant", 1);

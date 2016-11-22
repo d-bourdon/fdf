@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/21 18:29:47 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/22 15:28:18 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ typedef struct		s_info
 	t_liste			*points;
 }					t_info;
 
+/*
+** free_tabtab.c
+*/
+void				free_tabtab(char **tab);
 /*
 ** main.c
 */

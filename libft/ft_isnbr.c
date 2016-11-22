@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/09 14:17:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/10/09 14:21:54 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/11/22 15:13:44 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_isnbr(char *str)
 		return (0);
 	while (str[i] != '\0')
 	{
-		if (str[i] < 48 || str[i] > 57)
+		if ((str[i] < 48 || str[i] > 57) && str[i] != '-' && str[i] != '+')
 			return (0);
 		i++;
 	}
