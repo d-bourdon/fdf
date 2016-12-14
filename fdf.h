@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:18:27 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/22 15:28:18 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/12/14 12:42:32 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void				ft_erreur(char *s, int mode);
 */
 int					ft_ishexa(int c);
 int					*ft_hexctorgb(char	*hex);
-int					ft_degrade(int *p, int *tmp, int py);
+int					ft_degrade(int *p, int *tmp, long py);
 int					rgbtoi(int r, int g, int b);
 /*
 ** ligne.c

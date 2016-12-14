@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/25 17:41:13 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/21 18:28:58 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/12/14 12:42:09 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		trace_ligned(int *dir, int *p, int *d, t_info info)
 {
 	int		cumul;
 	int		i;
-	int		py;
+	long	py;
 	int		tmp[3];
 
 	tmp[0] = p[2];

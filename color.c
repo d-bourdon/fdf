@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 15:52:15 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/17 17:28:28 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/12/14 12:42:11 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			*ft_hexctorgb(char *hex)
 	return (out);
 }
 
-int			ft_degrade(int *p, int *tmp, int py)
+int			ft_degrade(int *p, int *tmp, long py)
 {
 	int		i;
 	int		j;

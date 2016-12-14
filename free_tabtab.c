@@ -6,7 +6,7 @@
 /*   By: dbourdon <dbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 12:18:22 by dbourdon          #+#    #+#             */
-/*   Updated: 2016/11/22 15:26:50 by dbourdon         ###   ########.fr       */
+/*   Updated: 2016/12/14 15:16:47 by dbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ void	free_tabtab(char **tab)
 	if (tab)
 		free(tab);
 }
-
